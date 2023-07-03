@@ -1,0 +1,22 @@
+
+
+<div class="editor-container">
+
+<form class="editor" [formGroup]="form">
+  <div class="code-container line-numbers">
+    <textarea
+      #textArea
+      placeholder="Edita tu codigo aqui..."
+      class="text-area-code-editor"
+      formControlName="content"
+      spellcheck="false"
+    ></textarea>
+    <pre
+      aria-hidden="true"
+      class="pre line-numbers"
+      #pre
+    ><code [ngClass]="['code', 'language-' + codeType]" #codeContent></code>
+    </pre>
+  </div>
+</form>
+</div>

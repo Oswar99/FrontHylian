@@ -1,0 +1,10 @@
+<div>
+  <app-prism-editor (codeChange)="onHtmlChange($event)"></app-prism-editor>
+  <app-prism-editor (codeChange)="onCssChange($event)" [codeType]="css"></app-prism-editor>
+  <app-prism-editor (codeChange)="onJsChange($event)" [codeType]="js"></app-prism-editor>
+
+  <div class="visualizer">
+    <label [innerHTML] = "html" [style] = "css" ></label>
+  </div>
+
+</div>
