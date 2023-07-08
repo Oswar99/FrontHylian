@@ -8,7 +8,7 @@
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    min-height: 150px;
+    min-height: 30vh;
   }
   
   .text-area-code-editor {
@@ -36,7 +36,7 @@
     min-height: inherit;
     z-index: 1;
     overflow: auto;
-    padding: 15px 0 0 70px;
+    padding: 15px 0 0 40px;
   
     .code {
       min-height: inherit;
@@ -59,7 +59,7 @@
     color: transparent;
     background: transparent;
     z-index: 2;
-    padding: 15px 0 0 70px;
+    padding: 15px 0 0 40px;
   }
   
   

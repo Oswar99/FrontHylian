@@ -1,10 +1,22 @@
-<div>
-  <app-prism-editor (codeChange)="onHtmlChange($event)"></app-prism-editor>
-  <app-prism-editor (codeChange)="onCssChange($event)" [codeType]="css"></app-prism-editor>
-  <app-prism-editor (codeChange)="onJsChange($event)" [codeType]="js"></app-prism-editor>
-
-  <div class="visualizer">
-    <label [innerHTML] = "html" [style] = "css" ></label>
+<div class="code-view">
+  <div class="row">
+    <app-prism-editor
+      class="column"
+      (codeChange)="onHtmlChange($event, 1)"
+    ></app-prism-editor>
+    <app-prism-editor
+      class="column"
+      (codeChange)="onHtmlChange($event, 2)"
+      codeType="css"
+    ></app-prism-editor>
+    <app-prism-editor
+      class="column"
+      (codeChange)="onHtmlChange($event, 3)"
+      codeType="js"
+    ></app-prism-editor>
   </div>
-
+  <div class="visualizer">
+    <iframe class="frame" [srcdoc]="html" [frameBorder]="0"></iframe>
+  </div>
+  <label style="color:white">{{html}}</label>
 </div>

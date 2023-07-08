@@ -1,7 +1,7 @@
 @import "prismjs/themes/prism-okaidia";
 //@import "prismjs/themes/prism-tomorrow";
-// @import "~prismjs/themes/prism-solarizedlight";
-// @import "~prismjs/themes/prism";
+//@import "prismjs/themes/prism-solarizedlight";
+//@import "prismjs/themes/prism";
 .editor *,
 *::after,
 *::before {
@@ -32,7 +32,7 @@
 }
 
 // Prism.js line numbers plugin
-.editor .line-numbers .line-numbers-rows {
+.line-numbers .line-numbers-rows {
   position: absolute;
   pointer-events: none;
   top: 15px;
@@ -44,12 +44,12 @@
   user-select: none;
 }
 
-.editor .line-numbers-rows > span {
+.line-numbers-rows > span {
   display: block;
   counter-increment: linenumber;
 }
 
-.editor .line-numbers-rows > span:before {
+.line-numbers-rows > span:before {
   content: counter(linenumber);
   color: rgb(219, 219, 219);
   display: block;

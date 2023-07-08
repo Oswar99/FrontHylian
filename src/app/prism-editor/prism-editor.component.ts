@@ -18,7 +18,9 @@ export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterView
   pre!: ElementRef;
 
   @Output() codeChange = new EventEmitter<string>();
-  @Input() codeType: string = 'html'
+  @Input() codeType: string = 'html';
+  
+  placeholder: string = 'Escriba su codigo HTML aqui...'
 
   sub!: Subscription;
   highlighted = false;
@@ -44,7 +46,13 @@ export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterView
 
   ngAfterViewInit() {
     this.prismService.highlightAll();
+    if(this.codeType === 'css'){
+      this.placeholder = 'Escriba su codigo CSS aqui...'
+    }else if(this.codeType === 'js'){
+      this.placeholder = 'Escriba su codigo JAVASCRIPT aqui...'
+    }
   }
+  
 
   ngAfterViewChecked() {
     if (this.highlighted) {
@@ -62,7 +70,8 @@ export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterView
       const modifiedContent = this.prismService.convertHtmlIntoString(val.content);
 
       this.renderer.setProperty(this.codeContent.nativeElement, 'innerHTML', modifiedContent);
-      this.codeChange.emit(val.content)
+      this.codeChange.emit(val.content);
+      this.ngAfterViewInit()
       this.highlighted = true;
     });
   }
