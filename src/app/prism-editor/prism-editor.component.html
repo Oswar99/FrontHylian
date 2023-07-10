@@ -1,22 +1,22 @@
-
-
-<div class="editor-container">
-
-<form class="editor" [formGroup]="form">
-  <div class="code-container line-numbers">
+<form class="" [formGroup]="form">
+  <div class="code-container">
     <textarea
       #textArea
-      placeholder="Edita tu codigo aqui..."
-      class="text-area-code-editor"
+      placeholder="{{ placeholder }}"
+      [(ngModel)]="textareaContent"
+      (input)="updateLineNumbers()"
+      class="text-area-code-editor language-{{codeType}}"
       formControlName="content"
       spellcheck="false"
     ></textarea>
     <pre
       aria-hidden="true"
-      class="pre line-numbers"
+      class="pre"
       #pre
     ><code [ngClass]="['code', 'language-' + codeType]" #codeContent></code>
-    </pre>
+    <div class="line-numbers">
+      <div class="line-numbers-row" *ngFor="let lineNumber of lineNumbers">{{lineNumber}}</div>
+    </div>
+  </pre>
   </div>
 </form>
-</div>

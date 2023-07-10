@@ -1,10 +1,26 @@
-<div>
-  <app-prism-editor (codeChange)="onHtmlChange($event)"></app-prism-editor>
-  <app-prism-editor (codeChange)="onCssChange($event)" [codeType]="css"></app-prism-editor>
-  <app-prism-editor (codeChange)="onJsChange($event)" [codeType]="js"></app-prism-editor>
-
-  <div class="visualizer">
-    <label [innerHTML] = "html" [style] = "css" ></label>
+<div class="container">
+  <div class="row">
+    <app-prism-editor
+      class="col-md-4"
+      (codeChange)="onHtmlChange($event, 1)"
+    ></app-prism-editor>
+    <app-prism-editor
+      class="col-md-4"
+      (codeChange)="onHtmlChange($event, 2)"
+      codeType="css"
+    ></app-prism-editor>
+    <app-prism-editor
+      class="col-md-4"
+      (codeChange)="onHtmlChange($event, 3)"
+      codeType="js"
+    ></app-prism-editor>
   </div>
-
+  <div class="visualizer bg-light shadow-sm">
+    <iframe class="frame" [srcdoc]="html" [frameBorder]="0"></iframe>
+  </div>
+  <div class="editor-save fixed-bottom px-5 py-3">
+    <button class="btn btn-primary">Guardar</button>
+    &nbsp;
+    <button class="btn btn-danger">Cancelar</button>
+  </div>
 </div>
