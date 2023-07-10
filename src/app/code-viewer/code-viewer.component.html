@@ -1,22 +1,26 @@
-<div class="code-view">
+<div class="container">
   <div class="row">
     <app-prism-editor
-      class="column"
+      class="col-md-4"
       (codeChange)="onHtmlChange($event, 1)"
     ></app-prism-editor>
     <app-prism-editor
-      class="column"
+      class="col-md-4"
       (codeChange)="onHtmlChange($event, 2)"
       codeType="css"
     ></app-prism-editor>
     <app-prism-editor
-      class="column"
+      class="col-md-4"
       (codeChange)="onHtmlChange($event, 3)"
       codeType="js"
     ></app-prism-editor>
   </div>
-  <div class="visualizer">
+  <div class="visualizer bg-light shadow-sm">
     <iframe class="frame" [srcdoc]="html" [frameBorder]="0"></iframe>
   </div>
-  <label style="color:white">{{html}}</label>
+  <div class="editor-save fixed-bottom px-5 py-3">
+    <button class="btn btn-primary">Guardar</button>
+    &nbsp;
+    <button class="btn btn-danger">Cancelar</button>
+  </div>
 </div>

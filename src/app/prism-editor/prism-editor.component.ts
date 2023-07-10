@@ -25,6 +25,14 @@ export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterView
   sub!: Subscription;
   highlighted = false;
 
+  textareaContent: string = '';
+  lineNumbers: number[] = [];
+
+  updateLineNumbers() {
+    const lines = this.textareaContent.split('\n');
+    this.lineNumbers = Array.from({ length: lines.length }, (_, i) => i + 1);
+  }
+
   form = this.fb.group({
     content: ''
   });
