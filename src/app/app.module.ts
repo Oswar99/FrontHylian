@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PrismEditorComponent } from './prism-editor/prism-editor.component';
 import { CodeViewerComponent } from './code-viewer/code-viewer.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PrismEditorComponent,
-    CodeViewerComponent
+    CodeViewerComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,76 @@
+#contenedor {
+    background-image: url(/src/img/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/*LOGO*/
+#conlogo {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+#logohylia {
+    width: 40px;
+    margin-right: 10px;
+    
+}
+#textlogo {
+    color: rgb(190, 224, 247);
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*PARRAFO*/
+#conparrafo{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 150px;
+    margin-left: 80px;
+    margin-right: 800px;
+}
+#titulolanding {
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+#parrafo {
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#btnexplora{
+    width: 100px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+}
+
+/*TAZA*/
+#contaza {
+    position: absolute;
+    right: 150px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 150px;
+}
+#taza {
+    width: 400px;
+    opacity: 0.7;
+}
+#pietaza {
+    color: rgb(255, 255, 255);
+    margin: 5%;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
