@@ -5,13 +5,13 @@
       placeholder="{{ placeholder }}"
       [(ngModel)]="textareaContent"
       (input)="updateLineNumbers()"
-      class="text-area-code-editor language-{{codeType}}"
+      class="text-area-code-editor scrollbar language-{{codeType}}"
       formControlName="content"
       spellcheck="false"
     ></textarea>
     <pre
       aria-hidden="true"
-      class="pre"
+      class="pre scrollbar"
       #pre
     ><code [ngClass]="['code', 'language-' + codeType]" #codeContent></code>
     <div class="line-numbers">

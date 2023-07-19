@@ -2,12 +2,76 @@
 @import "prismjs/themes/prism-okaidia";
 
 body {
-  background-image: url("./imgs/background.jpeg");
+  background-image: url("/assets/imgs/background.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   background-color: rgba(255, 0, 0, 0);
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  color:white;
 }
+
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background-color: #f1f1f1; 
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.logo-mini{
+  width: 50px;
+}
+
+.form-h{
+  
+  background-color: #212529c8;
+  width: 100%;
+  border-radius: 10px;
+
+}
+
+.nav-container{
+  margin-bottom:10vh;
+}
+
+.view-container, .bar-container{
+  background-color: #212529a0;
+  color: rgb(229, 229, 229); 
+}
+
+.view-container{
+  position: relative;
+  padding-bottom: 100px;
+  padding-top: 25px;
+}
+
+.form-h, .bar-container{
+  
+  .btn{
+    background-color: #60a5fa;
+    color:white;
+    border-style: none;
+  }
+  
+  .btn:active{
+    background-color: #60a5fa;
+    opacity: 0.7;
+    border-style: none;
+  }
+}
+
 
 .main-container {
   width: 100vw;
@@ -31,6 +95,10 @@ body {
   position: absolute;
 }
 
+.pr{
+  position: relative;
+}
+
 .row-center {
   justify-content: center;
   align-items: center;
@@ -45,8 +113,17 @@ body {
   height: 150px;
 }
 
-.color-e{
-  background-color: rgb(15, 15, 15);
-  color: whitesmoke;
-  
+
+.w-8{
+  width: 80%;
+}
+
+.btn-max{
+  background: transparent;
+  border-style: none;
+  color:white;
+  position:  absolute;
+  right: 20px;
+  bottom: 10px;
+  z-index: 1;
 }

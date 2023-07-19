@@ -8,9 +8,8 @@ import { PrismEditorComponent } from './prism-editor/prism-editor.component';
 import { CodeViewerComponent } from './code-viewer/code-viewer.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
-import { WorkshopComponent } from './workshop/workshop.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LateralBarComponent } from './components/lateral-bar/lateral-bar';
+import { LateralBarComponent } from './components/navbar/navbar';
 import { ProjectsComponent } from './components/projects/projects';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { ProjectsComponent } from './components/projects/projects';
     CodeViewerComponent,
     LandingPageComponent,
     LoginComponent,
-    WorkshopComponent,
     LateralBarComponent,
     ProjectsComponent
   ],

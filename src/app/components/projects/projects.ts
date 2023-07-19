@@ -6,13 +6,14 @@ import { Component } from '@angular/core';
     styleUrls: ['../styles.components.scss']
 })
 
-export class ProjectsComponent{
-    newp: boolean = false
-    btnnew: string ='Nuevo Proyecto'
-    changeView(name:string){
-        if(name === "new"){
-            this.btnnew = !this.newp? 'Volver': 'Nuevo Proyecto';
-            this.newp = !this.newp;
-        }
+export class ProjectsComponent {
+    newp: boolean = true;
+    btnnew: string = 'Nuevo Proyecto';
+    title: string = 'Mis Proyectos'
+
+    changeView() {
+        this.btnnew = !this.newp ? 'Volver' : 'Nuevo Proyecto';
+        this.title = this.newp ? 'Mis Proyectos' : 'Nuevo Proyecto'
+        this.newp = !this.newp;
     }
 }

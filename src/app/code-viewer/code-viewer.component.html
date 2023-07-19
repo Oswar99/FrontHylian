@@ -1,19 +1,27 @@
 <div class="container">
   <div class="row">
-    <app-prism-editor
-      class="col-md-4"
-      (codeChange)="onHtmlChange($event, 1)"
-    ></app-prism-editor>
-    <app-prism-editor
-      class="col-md-4"
-      (codeChange)="onHtmlChange($event, 2)"
-      codeType="css"
-    ></app-prism-editor>
-    <app-prism-editor
-      class="col-md-4"
-      (codeChange)="onHtmlChange($event, 3)"
-      codeType="js"
-    ></app-prism-editor>
+    <div class="col-md-4 pr">
+      <app-prism-editor
+        (codeChange)="onHtmlChange($event, 1)"
+      ></app-prism-editor>
+      <button class="btn-max">max</button>
+    </div>
+
+    <div class="col-md-4 pr">
+      <app-prism-editor
+        (codeChange)="onHtmlChange($event, 2)"
+        codeType="css"
+      ></app-prism-editor>
+      <button class="btn-max">max</button>
+    </div>
+
+    <div class="col-md-4 pr">
+      <app-prism-editor
+        (codeChange)="onHtmlChange($event, 3)"
+        codeType="js"
+      ></app-prism-editor>
+      <button class="btn-max">max</button>
+    </div>
   </div>
   <div class="visualizer bg-light shadow-sm">
     <iframe class="frame" [srcdoc]="html" [frameBorder]="0"></iframe>
