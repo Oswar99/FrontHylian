@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LateralBarComponent } from './components/navbar/navbar';
 import { ProjectsComponent } from './components/projects/projects';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ProjectsComponent } from './components/projects/projects';
     LandingPageComponent,
     LoginComponent,
     LateralBarComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
