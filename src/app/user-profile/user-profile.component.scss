@@ -1,0 +1,55 @@
+#contPerfilImg {
+    position: relative;
+    width: 50%;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+#imgPortada{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; //Indice para ponerla de fondo
+    border: solid 2px;
+}
+
+#imgPerfil{
+    position: absolute;
+    bottom: 1px; 
+    left: 1px;
+    height: 80px; 
+    width: 100px; 
+    z-index: 2; //Indice para ponerla arriba
+    border: solid 2px;
+}
+
+#nombreUsuario{
+    position: absolute;
+    bottom: 0%;
+    left: 105px;
+    color: #000000;
+    z-index: 3;
+}
+
+/*LOGO*/
+#conlogo {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+#logohylia {
+    width: 40px;
+    margin-right: 10px;
+    
+}
+#textlogo {
+    color: rgb(190, 224, 247);
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
