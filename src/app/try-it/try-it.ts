@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'try-it',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
 })
 
 export class TryItComponent {
-    enablesave: boolean = false;
+    enablesave: boolean = false;  
+    constructor (private router: Router){}
+  
+    irALanding(){
+      this.router.navigate(['']);
+    }
 }

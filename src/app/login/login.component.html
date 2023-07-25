@@ -1,7 +1,7 @@
 <div id="barraNav">
     <div id="conlogo">
-        <img id="logohylia" src="/assets/imgs/LogoHylia.png" alt="">
-        <span id="textlogo">HYLIA NOTE</span>
+        <img (click)="irALanding()" id="logohylia" src="/assets/imgs/LogoHylia.png" alt="">
+        <span (click)="irALanding()" id="textlogo">HYLIA NOTE</span>
     </div>
 </div>
 
@@ -12,7 +12,7 @@
                 <h1 class="mb-4">Iniciar sesion</h1>
                 <input class="form-control" placeholder="Usuario" />
                 <input class="form-control" placeholder="Contraseña" />
-                <button class="btn mb-3 mt-4">Acceder</button>
+                <button (click)="irAProyectos()" class="btn mb-3 mt-4">Acceder</button>
                 <a routerLink="/signup" >Registrarse</a>
             </div>
         </div>

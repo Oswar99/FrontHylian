@@ -14,10 +14,12 @@ export class LandingPageComponent {
     this.router.navigate(['/login']);
   }
 
-  irAUserProfile(){
-    this.router.navigate(['/user-profile']);
+  irAProyectos(){
+    this.router.navigate(['/proyectos']);
   }
-    /*this.router.navigate(['/signup'])
-  }*/
+
+  irATryIt() {
+    this.router.navigate(['/try-it']);
+  }
   
 }

@@ -5,7 +5,7 @@
             <span id="textlogo">HYLIA NOTE</span>
         </div>
         <div id="barra">
-            <button class="btnBarra" id="areaTrabajo">Area de Trabajo |</button>
+            <button (click)="irATryIt()" class="btnBarra" id="areaTrabajo">Area de Trabajo |</button>
             <button class="btnBarra" id="acercaDe">Acerca De |</button>
             <button (click)="irALogin()" class="btnBarra" id="login">Registrate</button>
         </div>
@@ -16,9 +16,7 @@
              proyectos, pruébalos en tiempo real, compártelos y hasta puedes recibir retroalimentación de 
              usuarios si tú lo deseas.
         </p>
-        <input (click)="irAUserProfile()" id="btnexplora" type="button" value="Explora >>">
-        <input id="btnexplora" type="button" value="Explora >>">
-        <a routerLink="/try-it" class="stretched-link"></a>
+        <input (click)="irATryIt()" id="btnexplora" type="button" value="Explora >>">
     </div>
     <div id="contaza">
         <img id="taza" src="/assets/imgs/tazaJS.png" alt="">
