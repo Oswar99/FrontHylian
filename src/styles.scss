@@ -13,6 +13,10 @@ body {
   color:white;
 }
 
+h1{
+  margin-bottom: 0px !important;
+}
+
 .scrollbar::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -116,14 +120,4 @@ body {
 
 .w-8{
   width: 80%;
-}
-
-.btn-max{
-  background: transparent;
-  border-style: none;
-  color:white;
-  position:  absolute;
-  right: 20px;
-  bottom: 10px;
-  z-index: 1;
 }

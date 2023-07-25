@@ -1,34 +1,83 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-4 pr">
-      <app-prism-editor
+  <div class="code-btngroup">
+    <button class="btn-max" (click)="onSelectModal(1, 'HTML')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editor HTML</button>
+    <button class="btn-max" (click)="onSelectModal(2, 'CSS')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editor CSS</button>
+    <button class="btn-max" (click)="onSelectModal(3, 'JAVASCRIPT')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editor JS</button>
+  </div>
+  <div class="row code-row">
+    <div class="col-md-4 mb-3 pr">
+      <app-prism-editor [textareaContent]="htmltext"
         (codeChange)="onHtmlChange($event, 1)"
       ></app-prism-editor>
-      <button class="btn-max">max</button>
+      <button class="btn-max" (click)="onSelectModal(1, 'HTML')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">max</button>
     </div>
 
-    <div class="col-md-4 pr">
-      <app-prism-editor
+    <div class="col-md-4 mb-3 pr">
+      <app-prism-editor [textareaContent]="csstext"
         (codeChange)="onHtmlChange($event, 2)"
         codeType="css"
       ></app-prism-editor>
-      <button class="btn-max">max</button>
+      <button class="btn-max" (click)="onSelectModal(2, 'CSS')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >max</button>
     </div>
 
-    <div class="col-md-4 pr">
-      <app-prism-editor
+    <div class="col-md-4 mb-3 pr">
+      <app-prism-editor [textareaContent]="jstext"
         (codeChange)="onHtmlChange($event, 3)"
         codeType="js"
       ></app-prism-editor>
-      <button class="btn-max">max</button>
+      <button class="btn-max" (click)="onSelectModal(3, 'JAVASCRIPT')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >max</button>
     </div>
   </div>
   <div class="visualizer bg-light shadow-sm">
     <iframe class="frame" [srcdoc]="html" [frameBorder]="0"></iframe>
   </div>
-  <div class="editor-save fixed-bottom px-5 py-3">
+  <div *ngIf="enablesave" class="editor-save fixed-bottom px-5 py-3">
     <button class="btn btn-primary">Guardar</button>
     &nbsp;
     <button class="btn btn-danger">Cancelar</button>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="staticBackdrop"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable"
+  >
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">{{modaltitle}}</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body mb-3 pr scrollbar">
+          <app-prism-editor *ngIf="selectedmodal === 1" classmain="code-main" [textareaContent]="htmltext"
+            (codeChange)="onHtmlChange($event, 1)"
+          ></app-prism-editor>
+          <app-prism-editor *ngIf="selectedmodal === 2" classmain="code-main"  [textareaContent]="csstext"
+            (codeChange)="onHtmlChange($event, 2)"
+            codeType="css"
+          ></app-prism-editor>
+          <app-prism-editor *ngIf="selectedmodal === 3" classmain="code-main"  [textareaContent]="jstext"
+            (codeChange)="onHtmlChange($event, 3)"
+            codeType="js"
+          ></app-prism-editor>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          Terminar
+        </button>
+      </div>
+    </div>
   </div>
 </div>

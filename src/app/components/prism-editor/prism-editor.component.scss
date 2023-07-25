@@ -6,6 +6,13 @@
   min-height: 200px;
 }
 
+.code-main {
+  .code-container {
+    min-height: 60vh;
+    max-width: 100%;
+  }
+}
+
 .line-numbers {
   position: absolute;
   top: 0px;
@@ -66,8 +73,8 @@
   top: 0;
   bottom: 0;
   width: 100%;
-  background:transparent;
-  color:transparent;
+  background: transparent;
+  color: transparent;
   z-index: 2;
   padding: 15px 0 0 70px;
 }

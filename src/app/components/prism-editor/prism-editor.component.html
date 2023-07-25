@@ -1,10 +1,9 @@
-<form class="" [formGroup]="form">
+<form [class]="classmain" [formGroup]="form">
   <div class="code-container">
     <textarea
       #textArea
       placeholder="{{ placeholder }}"
       [(ngModel)]="textareaContent"
-      (input)="updateLineNumbers()"
       class="text-area-code-editor scrollbar language-{{codeType}}"
       formControlName="content"
       spellcheck="false"

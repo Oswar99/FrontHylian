@@ -1,7 +1,7 @@
 import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { fromEvent, Subscription } from 'rxjs';
-import { PrismService } from '../services/prism.service';
+import { PrismService } from '../../services/prism.service';
 
 
 @Component({
@@ -9,7 +9,7 @@ import { PrismService } from '../services/prism.service';
   templateUrl: './prism-editor.component.html',
   styleUrls: ['./prism-editor.component.scss']
 })
-export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterViewInit, OnDestroy  {
+export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterViewInit, OnDestroy {
   @ViewChild('textArea', { static: true })
   textArea!: ElementRef;
   @ViewChild('codeContent', { static: true })
@@ -19,14 +19,16 @@ export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterView
 
   @Output() codeChange = new EventEmitter<string>();
   @Input() codeType: string = 'html';
-  
+  @Input() classmain: string = '';
+
   placeholder: string = 'Escriba su codigo HTML aqui...'
 
   sub!: Subscription;
   highlighted = false;
 
-  textareaContent: string = '';
+  @Input() textareaContent: string = '';
   lineNumbers: number[] = [];
+
 
   updateLineNumbers() {
     const lines = this.textareaContent.split('\n');
@@ -45,7 +47,7 @@ export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterView
     private prismService: PrismService,
     private fb: FormBuilder,
     private renderer: Renderer2
-  ) { }
+  ) {};
 
   ngOnInit(): void {
     this.listenForm()
@@ -54,13 +56,13 @@ export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterView
 
   ngAfterViewInit() {
     this.prismService.highlightAll();
-    if(this.codeType === 'css'){
+    if (this.codeType === 'css') {
       this.placeholder = 'Escriba su codigo CSS aqui...'
-    }else if(this.codeType === 'js'){
+    } else if (this.codeType === 'js') {
       this.placeholder = 'Escriba su codigo JAVASCRIPT aqui...'
     }
   }
-  
+
 
   ngAfterViewChecked() {
     if (this.highlighted) {
@@ -74,13 +76,14 @@ export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterView
   }
 
   private listenForm() {
-    this.sub = this.form.valueChanges.subscribe((val:any) => {
+    this.sub = this.form.valueChanges.subscribe((val: any) => {
       const modifiedContent = this.prismService.convertHtmlIntoString(val.content);
 
       this.renderer.setProperty(this.codeContent.nativeElement, 'innerHTML', modifiedContent);
       this.codeChange.emit(val.content);
       this.ngAfterViewInit()
       this.highlighted = true;
+      this.updateLineNumbers();
     });
   }
 
