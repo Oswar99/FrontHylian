@@ -1,7 +1,7 @@
 import { Component, ViewChild, Input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
-import { PrismEditorComponent } from '../components/prism-editor/prism-editor.component';
+import { PrismEditorComponent } from '../prism-editor/prism-editor.component';
 import CoderContent from 'src/helpers/coder.helper';
 
 @Component({
