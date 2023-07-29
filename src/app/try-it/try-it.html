@@ -1,11 +1,10 @@
-<div id="barraNav">
-  <div id="conlogo" (click)="irALanding()">
-      <img id="logohylia" src="/assets/imgs/LogoHylia.png" alt="">
-      <span id="textlogo">HYLIA NOTE</span>
+<div class="try-head py-3 px-3">
+  <nav-logo></nav-logo>
 </div>
 <div class="view-container">
   <app-code-viewer [enablesave]="enablesave"></app-code-viewer>
-  <div id="registrate">
-    <button id="btnRegistrate" class="btn btn-primary" >Registrate Ahora</button>
-  </div>
 </div>
+
+  <a class="btnSignup" routerLink="/signup">
+    <i class="fa-solid fa-user-plus"></i> Registrate
+  </a>

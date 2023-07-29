@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './landing-page.component.html',
   styleUrls: ['./landing-page.component.scss']
 })
+
 export class LandingPageComponent {
   constructor (private router: Router){}
   
@@ -18,7 +19,11 @@ export class LandingPageComponent {
     this.router.navigate(['/signup']);
   }
 
-  irATryIt() {
+  irAProyectos(){
+    this.router.navigate(['/projects']);
+  }
+
+  irATryIt(){
     this.router.navigate(['/try-it']);
   }
   

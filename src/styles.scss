@@ -13,12 +13,17 @@ body {
   color:white;
 }
 
+h1{
+  margin-bottom: 0px !important;
+}
+
 /*LOGO*/
 #conlogo {
   display: flex;
   align-items: center;
-  margin-top: 30px;
   margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #logohylia {
@@ -31,10 +36,6 @@ body {
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
   user-select: none;
-}
-
-h1{
-  margin-bottom: 0px !important;
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -58,16 +59,23 @@ h1{
   width: 50px;
 }
 
+.nav-container{
+  padding-top: 7vh;
+  padding-bottom: 1vh;
+}
+
+.nav-alt{
+  position: fixed;
+  top:0px;
+  left: 0px;
+}
+
 .form-h{
   
   background-color: #212529c8;
   width: 100%;
   border-radius: 10px;
 
-}
-
-.nav-container{
-  margin-bottom:10vh;
 }
 
 .view-container, .bar-container{
@@ -77,7 +85,7 @@ h1{
 
 .view-container{
   position: relative;
-  padding-bottom: 100px;
+  padding-bottom: 15px;
   padding-top: 25px;
 }
 

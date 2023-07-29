@@ -1,20 +1,27 @@
-<div id="barraNav">
-    <div id="conlogo">
-        <img (click)="irALanding()" id="logohylia" src="/assets/imgs/LogoHylia.png" alt="">
-        <span (click)="irALanding()" id="textlogo">HYLIA NOTE</span>
-    </div>
+<div class="nav-alt">
+  <div id="conlogo">
+    <img
+      (click)="irALanding()"
+      id="logohylia"
+      src="/assets/imgs/LogoHylia.png"
+      alt=""
+    />
+    <span (click)="irALanding()" id="textlogo">HYLIA NOTE</span>
+  </div>
 </div>
 
 <section class="main rounded py-5 px-4 shadow container">
     <div class="row justify-content-center">
-        <div class="col-md-6 ">
-            <div class="form-h  px-5 py-4 w-8">
-                <h1 class="mb-4">Iniciar sesion</h1>
-                <input class="form-control" placeholder="Usuario" />
-                <input class="form-control" placeholder="Contraseña" />
-                <button (click)="irAProyectos()" class="btn mb-3 mt-4">Acceder</button>
-                <a routerLink="/signup" >Registrarse</a>
-            </div>
+      <div class="col-md-6">
+        <div class="form-h px-5 py-4 w-8">
+          <h1 class="mb-4">Iniciar sesion</h1>
+          <input class="form-control" placeholder="Usuario" />
+          <input class="form-control" placeholder="Contraseña" />
+          <button (click)="irAProyectos()" class="btn mb-3 mt-4">
+            Acceder
+          </button>
+          <a routerLink="/signup">Registrarse</a>
         </div>
-    </div>
+      </div>
+  </div>
 </section>

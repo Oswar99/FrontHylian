@@ -10,7 +10,7 @@ export class LoginComponent {
   constructor (private router: Router){}
   
   irAProyectos(){
-    this.router.navigate(['/proyectos']);
+    this.router.navigate(['/projects']);
   }
 
   irALanding(){

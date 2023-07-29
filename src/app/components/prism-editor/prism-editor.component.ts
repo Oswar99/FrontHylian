@@ -1,7 +1,7 @@
 import { AfterViewChecked, AfterViewInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild, Output, EventEmitter, Input } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { fromEvent, Subscription } from 'rxjs';
-import { PrismService } from '../../services/prism.service';
+import { PrismService } from '../../../services/prism.service';
 
 
 @Component({
@@ -47,20 +47,22 @@ export class PrismEditorComponent implements OnInit, AfterViewChecked, AfterView
     private prismService: PrismService,
     private fb: FormBuilder,
     private renderer: Renderer2
-  ) {};
+  ) {
+    
+  };
 
   ngOnInit(): void {
     this.listenForm()
     this.synchronizeScroll();
+    if (this.codeType === 'css') {
+      this.placeholder = 'Escriba su codigo CSS aqui...'
+    } else if (this.codeType === 'js') {
+      this.placeholder = 'Escriba su codigo JS aqui...'
+    }
   }
 
   ngAfterViewInit() {
     this.prismService.highlightAll();
-    if (this.codeType === 'css') {
-      this.placeholder = 'Escriba su codigo CSS aqui...'
-    } else if (this.codeType === 'js') {
-      this.placeholder = 'Escriba su codigo JAVASCRIPT aqui...'
-    }
   }
 
 

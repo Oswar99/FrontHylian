@@ -40,19 +40,11 @@
 }
 
 .editor-save{
-    position: absolute;
+    position: relative;
+    margin-top: 10px;
     display: flex;
     flex-direction: row-reverse;
 }
-
-
-.btn-close{
-    color:white;
-    background-color: white;
-}
-
-
-
 
 .btn-max{
     background:transparent;
@@ -107,4 +99,14 @@
 
 #btnCompartir{
   background-color: green;
+}
+
+.usuarioSugerido{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: normal;
+  align-content: normal;
+  cursor: pointer;
 }
