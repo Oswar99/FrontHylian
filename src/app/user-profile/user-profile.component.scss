@@ -54,3 +54,34 @@
     align-items: center;
     align-content: stretch;
 }
+
+.contProyecto{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: normal;
+    align-content: normal;
+}
+
+#btnBorrarProyecto{
+    background-color: red;
+}
+
+.usuarioSugerido{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: normal;
+    align-content: normal;
+}
+
+#barraBusqueda{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: normal;
+    align-content: normal;
+}
