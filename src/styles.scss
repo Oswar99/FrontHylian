@@ -21,8 +21,9 @@ h1{
 #conlogo {
   display: flex;
   align-items: center;
-  margin-top: 30px;
   margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #logohylia {
@@ -34,6 +35,7 @@ h1{
   color: rgb(190, 224, 247);
   font-size: 18px;
   font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
 }
 
 .scrollbar::-webkit-scrollbar {
@@ -60,6 +62,12 @@ h1{
 .nav-container{
   padding-top: 7vh;
   padding-bottom: 1vh;
+}
+
+.nav-alt{
+  position: fixed;
+  top:0px;
+  left: 0px;
 }
 
 .form-h{

@@ -11,7 +11,15 @@ export class LandingPageComponent {
   constructor (private router: Router){}
   
   irALogin(){
-    this.router.navigate(['/signup'])
+    this.router.navigate(['/register']);
+  }
+
+  irAProyectos(){
+    this.router.navigate(['/projects']);
+  }
+
+  irATryIt() {
+    this.router.navigate(['/try-it']);
   }
   
 }
