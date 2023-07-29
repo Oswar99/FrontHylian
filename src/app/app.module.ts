@@ -15,6 +15,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignupComponent } from './signup/signup';
 import { TryItComponent } from './try-it/try-it';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
+import { RegisteredUsersComponent } from './registered-users/registered-users.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
     UserProfileComponent,
     SignupComponent,
     TryItComponent,
-    UserProfileEditComponent
+    UserProfileEditComponent,
+    RegisteredUsersComponent
   ],
 
   imports: [

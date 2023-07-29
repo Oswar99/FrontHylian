@@ -8,6 +8,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignupComponent } from './signup/signup';
 import { TryItComponent } from './try-it/try-it';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
+import { RegisteredUsersComponent } from './registered-users/registered-users.component';
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'signup', component:SignupComponent},
   {path: 'proyectos', component: ProjectsComponent},
-  {path: 'user-profile-edit', component: UserProfileEditComponent}
+  {path: 'user-profile-edit', component: UserProfileEditComponent},
+  {path: 'registered-users', component: RegisteredUsersComponent}
 ];
 
 @NgModule({

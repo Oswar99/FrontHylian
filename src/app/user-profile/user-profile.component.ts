@@ -13,4 +13,8 @@ export class UserProfileComponent {
     this.router.navigate(['/user-profile-edit']);
   }
 
+  verUsuario(){
+    this.router.navigate(['/registered-users']);
+  }
+
 }
