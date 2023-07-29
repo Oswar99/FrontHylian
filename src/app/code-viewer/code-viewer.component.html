@@ -32,7 +32,7 @@
     <iframe class="frame" [srcdoc]="html" [frameBorder]="0"></iframe>
   </div>
   <div *ngIf="enablesave" class="editor-save fixed-bottom px-5 py-3">
-    <button id="btnCompartir" class="btn btn-primary" >Compartir</button>
+    <button id="btnCompartir" class="btn btn-primary" (click)="abrirModal()">Compartir</button>
     &nbsp;
     <button class="btn btn-primary">Guardar</button>
     &nbsp;
@@ -79,6 +79,42 @@
         <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
           Terminar
         </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal" [ngClass]="{'d-block': modalAbierta, 'd-none': !modalAbierta}">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Opciones</h5>
+        <button type="button" class="close" (click)="cerrarModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="cajaTexto1">Caja de Texto 1:</label>
+          <input type="text" class="form-control" id="cajaTexto1">
+        </div>
+        <div class="form-group">
+          <label for="cajaTexto2">Caja de Texto 2:</label>
+          <input type="text" class="form-control" id="cajaTexto2">
+        </div>
+        <div class="form-group">
+          <label for="cajaTexto3">Caja de Texto 3:</label>
+          <input type="text" class="form-control" id="cajaTexto3">
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
+        <button type="button" class="btn btn-primary">Guardar</button>
       </div>
     </div>
   </div>

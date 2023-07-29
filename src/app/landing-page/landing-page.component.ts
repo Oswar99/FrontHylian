@@ -14,8 +14,8 @@ export class LandingPageComponent {
     this.router.navigate(['/login']);
   }
 
-  irAProyectos(){
-    this.router.navigate(['/proyectos']);
+  irAInscribirse(){
+    this.router.navigate(['/signup']);
   }
 
   irATryIt() {
