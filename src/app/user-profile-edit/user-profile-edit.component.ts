@@ -13,4 +13,14 @@ export class UserProfileEditComponent {
     this.router.navigate(['/user-profile']);
   }
 
+  modalAbierta: boolean = false;
+
+  abrirModal() {
+    this.modalAbierta = true;
+  }
+
+  cerrarModal() {
+    this.modalAbierta = false;
+  }
+
 }

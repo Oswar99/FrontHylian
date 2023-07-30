@@ -7,9 +7,13 @@ import { Router } from '@angular/router';
 })
 
 export class SignupComponent {
-    constructor (private router: Router){}
+  constructor (private router: Router){}
   
-    irALanding(){
-      this.router.navigate(['']);
-    }
+  irALanding(){
+    this.router.navigate(['']);
+  }
+  
+  irALogin(){
+    this.router.navigate(['/login']);
+  }
 }

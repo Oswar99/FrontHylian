@@ -15,7 +15,14 @@
                 <input class="form-control" placeholder="Correo" />
                 <input class="form-control" placeholder="Contraseña" />
                 <input class="form-control" placeholder="Repita la Contraseña" />
-                <button class="btn mb-4 mt-4">Continuar</button>
+                <label for="opciones">Tipo de Usuario:</label>
+                &nbsp;
+                  <select id="opciones">
+                      <option value="opcion1">Gratis</option>
+                      <option value="opcion2">PRO</option>
+                  </select>
+                  <br>
+                <button (click)="irALogin()" class="btn mb-4 mt-4">Continuar</button>
             </div>
         </div>
     </div>
