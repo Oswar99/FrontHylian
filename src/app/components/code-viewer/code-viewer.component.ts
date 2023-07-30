@@ -1,8 +1,10 @@
-import { Component, ViewChild, Input } from '@angular/core';
+import { Component, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { PrismEditorComponent } from '../prism-editor/prism-editor.component';
 import CoderContent from 'src/helpers/coder.helper';
+import { IProjectData } from 'src/helpers/types';
+import { ProjectsController } from 'src/helpers/controller.helper';
 
 @Component({
   selector: 'app-code-viewer',
@@ -13,6 +15,9 @@ export class CodeViewerComponent{
   @ViewChild(PrismEditorComponent) child: any;
   @Input() ngStyle: any;
   @Input() enablesave: boolean = true;
+
+  @Input() pc: ProjectsController|undefined;
+  @Output() fnCancel: EventEmitter<void> = new EventEmitter<void>;
 
   html: SafeHtml;
 
@@ -59,6 +64,22 @@ export class CodeViewerComponent{
   cerrarModal() {
     this.modalAbierta = false;
   }
+
+  fnSave(){
+    const data: IProjectData = {
+      type:"Publico",
+      status:1,
+      html:this.htmltext,
+      css:this.csstext,
+      js: this.jstext
+    }
+
+    if(this.pc){
+      this.pc.addProject(data);
+    };
+
+    this.fnCancel.emit();
+  };
   
 }
 

@@ -55,13 +55,26 @@ h1{
   background-color: #555;
 }
 
-.logo-mini{
-  width: 50px;
+.table{
+  overflow: auto;
 }
 
-.nav-container{
-  padding-top: 7vh;
-  padding-bottom: 1vh;
+.table-rw{
+  background-color: #212529c8;
+  border-radius: 5px;
+  min-width: 430px;
+
+  .index{
+    background-color: #787d83c8;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 14px;
+  }
+}
+
+.logo-mini{
+  width: 50px;
 }
 
 .nav-alt{
@@ -79,7 +92,7 @@ h1{
 }
 
 .view-container, .bar-container{
-  background-color: #212529a0;
+  background-color: #212529c8;
   color: rgb(229, 229, 229); 
 }
 

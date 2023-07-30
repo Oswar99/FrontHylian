@@ -34,10 +34,12 @@
   <div class="visualizer bg-light shadow-sm">
     <iframe class="frame" [srcdoc]="html" [frameBorder]="0"></iframe>
   </div>
+
   <div *ngIf="enablesave" class="editor-save py-3">
-    <button id="btnCompartir" class="btn btn-primary" (click)="abrirModal()">Compartir</button>
+    <button id="btnCompartir" class="btn btn-success" (click)="abrirModal()">Compartir</button>
     &nbsp;
-    <button class="btn btn-primary">Guardar</button>
+    <button class="btn btn-primary" (click)="fnSave()">Guardar</button>
+    <button class="btn btn-secondary mr-2" (click)="fnCancel.emit()">Cancelar</button>
   </div>
   
 </div>
