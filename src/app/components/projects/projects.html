@@ -1,0 +1,13 @@
+<hylia-navbar [title]="title"></hylia-navbar>
+<h4>Proyecto N</h4>
+<div *ngIf="!newp" class="bar-container row py-3">
+  <div class="col-md-6 px-5">
+    <button class="btn"  (click)="changeView()" >{{btnnew}}</button>
+  </div>
+  <div class="col-md-6 px-5">
+  </div>
+</div>
+
+<div class="view-container">
+  <app-code-viewer *ngIf="newp"></app-code-viewer>
+</div>

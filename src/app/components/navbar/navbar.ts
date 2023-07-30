@@ -9,5 +9,15 @@ import { Router } from '@angular/router';
 
 export class LateralBarComponent{
     @Input() title: string = "";
+    
+    constructor (private router: Router){}
+
+    irAPerfil(){
+        this.router.navigate(['/user-profile']);
+    }
+
+    irAAreaTrabajo(){
+        this.router.navigate(['/projects']);
+    }
 
 }

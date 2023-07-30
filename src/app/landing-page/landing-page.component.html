@@ -1,14 +1,63 @@
-<div id="contenedor">
+<div class="container-fluid">
+
+<div id="barraNav">
+  <div id="conlogo">
+    <img id="logohylia" src="/assets/imgs/LogoHylia.png" alt="" />
+    <span id="textlogo">HYLIA NOTE</span>
+  </div>
+  <div id="barra">
+    <button (click)="irATryIt()" class="btnBarra" id="areaTrabajo">
+      Area de Trabajo  |
+    </button>
+    <button class="btnBarra" id="acercaDe">Acerca De  |</button>
+    <button (click)="irALogin()" class="btnBarra" id="login">Ingresa  |</button>
+    <button (click)="irAInscribirse()" class="btnBarra" id="login">Registrate</button>
+  </div>
+</div>
+
+<div class="row py-5">
+  <div id="conparrafo" class="col-md-8 mb-3 px-5">
+    <div class="text-start my-5 px-5">
+      <h1 id="titulolanding" class="mb-3">
+        Tu Gestor de Codificacion Colaborativa en Linea
+      </h1>
+      <p id="parrafo" class="mb-3">
+        Hylia Note es una plataforma para que puedas crear tus proyectos de
+        codificación web, haz tus proyectos, pruébalos en tiempo real,
+        compártelos y hasta puedes recibir retroalimentación de usuarios si tú
+        lo deseas.
+      </p>
+      <input
+        (click)="irATryIt()"
+        id="btnexplora"
+        type="button"
+        value="Explora >>"
+      />
+    </div>
+  </div>
+
+  <div id="contaza" class="col-md-4">
+    <div id="text-center">
+      <img id="taza" src="/assets/imgs/tazaJS.png" alt="" />
+      <h1 id="pietaza">HTML - CSS - JS</h1>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+<!--<div id="contenedor">
     <div id="barraNav">
         <div id="conlogo">
             <img id="logohylia" src="/assets/imgs/LogoHylia.png" alt="">
             <span id="textlogo">HYLIA NOTE</span>
         </div>
         <div id="barra">
-            <button (click)="irATryIt()" class="btnBarra" id="areaTrabajo">Area de Trabajo |</button>
-            <button class="btnBarra" id="acercaDe">Acerca De |</button>
-            <button (click)="irASignup()" class="btnBarra" id="signup">Registrate |</button>
-            <button (click)="irALogin()" class="btnBarra" id="login">Iniciar Sesion</button>
+            <button (click)="irATryIt()" class="btnBarra" id="areaTrabajo">Area de Trabajo|</button>
+            <button class="btnBarra" id="acercaDe">Acerca De|</button>
+            <button (click)="irALogin()" class="btnBarra" id="login">Ingresa|</button>
+            <button (click)="irAInscribirse()" class="btnBarra" id="login">Registrate|</button>
         </div>
     </div>
     <div id="conparrafo">
@@ -23,4 +72,4 @@
         <img id="taza" src="/assets/imgs/tazaJS.png" alt="">
         <h1 id="pietaza">HTML - CSS - JS</h1>
     </div>
-</div>
+</div>-->

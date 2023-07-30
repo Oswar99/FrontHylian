@@ -100,3 +100,13 @@
 #btnCompartir{
   background-color: green;
 }
+
+.usuarioSugerido{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: normal;
+  align-content: normal;
+  cursor: pointer;
+}

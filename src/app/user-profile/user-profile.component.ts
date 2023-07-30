@@ -16,5 +16,5 @@ export class UserProfileComponent {
   verUsuario(){
     this.router.navigate(['/registered-users']);
   }
-
+  
 }

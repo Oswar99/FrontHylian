@@ -50,5 +50,15 @@ export class CodeViewerComponent{
     this.html = this.coder.getContent();
   };
 
+  modalAbierta: boolean = false;
+
+  abrirModal() {
+    this.modalAbierta = true;
+  }
+
+  cerrarModal() {
+    this.modalAbierta = false;
+  }
+  
 }
 
