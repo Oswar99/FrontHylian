@@ -9,9 +9,13 @@ import { Router } from '@angular/router';
 })
 export class LandingPageComponent {
   constructor (private router: Router){}
+
+  irASignup(){
+    this.router.navigate(['/signup']);
+  }
   
   irALogin(){
-    this.router.navigate(['/register']);
+    this.router.navigate(['/login']);
   }
 
   irAProyectos(){

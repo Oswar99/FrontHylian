@@ -11,7 +11,7 @@
       <app-prism-editor [textareaContent]="htmltext"
         (codeChange)="onHtmlChange($event, 1)"
       ></app-prism-editor>
-      <button class="btn-max" (click)="onSelectModal(1, 'HTML')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">max</button>
+      <button class="btn-max" (click)="onSelectModal(1, 'HTML')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-maximize"></i></button>
     </div>
 
     <div class="col-md-4 mb-3 pr">
@@ -19,7 +19,7 @@
         (codeChange)="onHtmlChange($event, 2)"
         codeType="css"
       ></app-prism-editor>
-      <button class="btn-max" (click)="onSelectModal(2, 'CSS')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >max</button>
+      <button class="btn-max" (click)="onSelectModal(2, 'CSS')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" ><i class="fa-solid fa-maximize"></i></button>
     </div>
 
     <div class="col-md-4 mb-3 pr">
@@ -27,7 +27,7 @@
         (codeChange)="onHtmlChange($event, 3)"
         codeType="js"
       ></app-prism-editor>
-      <button class="btn-max" (click)="onSelectModal(3, 'JAVASCRIPT')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >max</button>
+      <button class="btn-max" (click)="onSelectModal(3, 'JAVASCRIPT')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" ><i class="fa-solid fa-maximize"></i></button>
     </div>
   </div>
 
