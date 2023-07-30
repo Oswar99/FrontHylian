@@ -16,6 +16,10 @@ export class ProjectsComponent {
 
     pc: ProjectsController = new ProjectsController();
 
+    constructor(){
+        this.projects = this.pc.getProjects();
+    }
+
     changeView() {
         this.btnnew = !this.newp ? 'Volver' : 'Nuevo Proyecto';
         this.title = this.newp ? 'Mis Proyectos' : 'Nuevo Proyecto'

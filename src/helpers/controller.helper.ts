@@ -5,17 +5,32 @@ export class ProjectsController{
     private projects: IProjectData[] = [];
 
     public addProject(data:IProjectData){
+        const pjls = localStorage.getItem("pjls");
+        var pj: IProjectData[];
         const datatemp = {
             ...data,
             id: this.projects.length + 1,
             title: getName(),
             datetime: moment().format("DD/MM/yyyy")
         }
-        this.projects.push(datatemp);
+        if(pjls){
+            pj = JSON.parse(pjls);
+            pj.push(datatemp);
+        }else{
+            pj = [ datatemp ]
+        }
+        localStorage.setItem("pjls", JSON.stringify(pj))
     };
 
     public getProjects(){
-        return this.projects;
+        const pjls = localStorage.getItem("pjls");
+        if(pjls){
+            console.log(pjls)
+            return JSON.parse(pjls);
+        }else{
+            return this.projects;
+        }
+
     }
 }
 
