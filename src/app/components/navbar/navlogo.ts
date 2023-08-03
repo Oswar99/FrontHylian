@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
     selector: 'nav-logo',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
     styleUrls: ['../styles.components.scss']
 })
 
-export class NavLogoComponent{
+export class NavLogoComponent  {
+    
 }

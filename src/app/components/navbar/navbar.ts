@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { verifyUser } from 'src/services/api.service';
 
 @Component({
     selector: 'hylia-navbar',
@@ -7,8 +8,17 @@ import { Router } from '@angular/router';
     styleUrls: ['../styles.components.scss']
 })
 
-export class LateralBarComponent{
+export class LateralBarComponent implements OnInit{
     @Input() title: string = "";
+
+    ngOnInit(): void {
+        const user: string = localStorage.getItem("tk")!;
+        verifyUser(user).then(v=>{
+            if(!v.data.status){
+                this.router.navigate(['/']);
+            };
+        });
+    };
     
     constructor (private router: Router){}
 
