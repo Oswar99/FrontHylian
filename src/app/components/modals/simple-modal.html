@@ -1,0 +1,38 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-save">
+    {{btnLaunch}}
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="modal-save" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-dark">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">{{title}}</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input class="form-control my-3" [placeholder]= "placeholder" (input)="fnTextChange($event)" /> 
+          <label class="">Tipo de proyecto</label>
+          <hr class="py-1 my-1" />
+          <div class="form-check" (click) = "fnChangeState(true)">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" [checked]="public">
+            <label class="form-check-label" for="flexRadioDefault1">
+              Publico
+            </label>
+          </div>
+          <div class="form-check"  (click) = "fnChangeState(false)">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" [checked]="!public">
+            <label class="form-check-label" for="flexRadioDefault2">
+              Privado
+            </label>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="fnOnSaveClick()">Terminar</button>
+        </div>
+      </div>
+    </div>
+  </div>

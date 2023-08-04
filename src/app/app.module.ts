@@ -17,6 +17,7 @@ import { TryItComponent } from './try-it/try-it';
 import {  NavLogoComponent } from './components/navbar/navlogo';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { RegisteredUsersComponent } from './registered-users/registered-users.component';
+import { SimpleModal } from './components/modals/simple-modal';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { RegisteredUsersComponent } from './registered-users/registered-users.co
     TryItComponent,
     NavLogoComponent,
     UserProfileEditComponent,
-    RegisteredUsersComponent
+    RegisteredUsersComponent,
+    SimpleModal
   ],
 
   imports: [

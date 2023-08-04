@@ -1,31 +1,30 @@
 <div class="container">
-
   <div class="code-btngroup">
     <button class="btn-max" (click)="onSelectModal(1, 'HTML')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editor HTML</button>
     <button class="btn-max" (click)="onSelectModal(2, 'CSS')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editor CSS</button>
     <button class="btn-max" (click)="onSelectModal(3, 'JAVASCRIPT')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editor JS</button>
   </div>
-
+  
   <div class="row code-row">
     <div class="col-md-4 mb-3 pr">
       <app-prism-editor [textareaContent]="htmltext"
-        (codeChange)="onHtmlChange($event, 1)"
+      (codeChange)="onHtmlChange($event, 1)"
       ></app-prism-editor>
       <button class="btn-max" (click)="onSelectModal(1, 'HTML')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-maximize"></i></button>
     </div>
-
+    
     <div class="col-md-4 mb-3 pr">
       <app-prism-editor [textareaContent]="csstext"
-        (codeChange)="onHtmlChange($event, 2)"
-        codeType="css"
+      (codeChange)="onHtmlChange($event, 2)"
+      codeType="css"
       ></app-prism-editor>
       <button class="btn-max" (click)="onSelectModal(2, 'CSS')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" ><i class="fa-solid fa-maximize"></i></button>
     </div>
-
+    
     <div class="col-md-4 mb-3 pr">
       <app-prism-editor [textareaContent]="jstext"
-        (codeChange)="onHtmlChange($event, 3)"
-        codeType="js"
+      (codeChange)="onHtmlChange($event, 3)"
+      codeType="js"
       ></app-prism-editor>
       <button class="btn-max" (click)="onSelectModal(3, 'JAVASCRIPT')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" ><i class="fa-solid fa-maximize"></i></button>
     </div>
@@ -34,11 +33,11 @@
   <div class="visualizer bg-light shadow-sm">
     <iframe class="frame" [srcdoc]="html" [frameBorder]="0"></iframe>
   </div>
-
+  
   <div *ngIf="enablesave" class="editor-save py-3">
     <button id="btnCompartir" class="btn btn-success" (click)="abrirModal()">Compartir</button>
     &nbsp;
-    <button class="btn btn-primary" (click)="fnSave()">Guardar</button>
+    <simple-modal (onsave)="fnSave($event)" btnLaunch="Guardar" title="Guardar un nuevo proyecto" placeholder="Ingrese un nombre para su proyecto"></simple-modal>
     &nbsp;
     <button class="btn btn-secondary mr-2" (click)="fnCancel.emit()">Cancelar</button>
   </div>

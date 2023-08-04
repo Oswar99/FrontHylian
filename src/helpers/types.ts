@@ -1,9 +1,10 @@
 export interface IProjectData{
     id?: string|number,
     title?: string,
-    datetime?: Date |string,
-    type:string,
-    status: 1|2|3,
+    created_at?: Date |string,
+    created_at_str?: string,
+    public: boolean,
+    shared?: boolean,
     html?: string,
     css?: string,
     js?: string
