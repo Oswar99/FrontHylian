@@ -14,6 +14,8 @@ export class ProjectsComponent {
     btnnew: string = 'Nuevo Proyecto';
     title: string = 'Mis Proyectos';
 
+    selected: string = '';
+
     constructor(){
         getProjectsByUser().then(v=>{
             if(v.data.successed){
@@ -27,5 +29,18 @@ export class ProjectsComponent {
         this.title = this.newp ? 'Mis Proyectos' : 'Nuevo Proyecto'
         this.newp = !this.newp;
         //this.projects = this.pc.getProjects();
+    }
+
+    loadProject(title:string){
+        this.title = title;
+    }
+
+    selectProject(id:string){
+        this.selected = id;
+    }
+
+    deSelect(){
+        this.selected = ""
+        this.title = "Mis Proyectos"
     }
 }

@@ -50,3 +50,19 @@ export function getProjectsByUser(): Promise<any>{
         .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
     });
 };
+
+export function getProjectById(id:string): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.get(`${query}/project/${id}`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+export function updateProjectById(id:string, data:IProjectData): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.put(`${query}/project/${id}`, data)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};

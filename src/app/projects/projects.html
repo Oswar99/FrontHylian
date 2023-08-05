@@ -1,7 +1,7 @@
 <div class="py-1">
   <hylia-navbar [title]="title"></hylia-navbar>
 
-  <div *ngIf="!newp" class="bar-container row py-3 mt-4">
+  <div *ngIf="!newp && selected === ''" class="bar-container row py-3 mt-4">
     <div class="col-md-6 px-5">
       <button class="btn" (click)="changeView()">{{btnnew}}</button>
     </div>
@@ -14,10 +14,10 @@
     </div>
   </div>
 
-  <div *ngIf="!newp" class="container py-3 table scrollbar">
+  <div *ngIf="!newp && selected === ''" class="container py-3 table scrollbar">
     <div class="row pr">
-      <div *ngFor="let p of projects" class="col-lg-3 mb-3 px-3">
-        <div class="card-st card h-100">
+      <div *ngFor="let p of projects" class="col-lg-4 mb-3 px-3">
+        <div class="card-st card h-100" (dblclick)="selectProject(p._id!)">
           <div class="card-bd card-body px-3">
             <div class="row">
               <div class="col-4 py-2 d-flex row-center">
@@ -42,4 +42,9 @@
   <div *ngIf="newp" class="mt-4 view-container">
     <app-code-viewer (fnCancel)="changeView()"></app-code-viewer>
   </div>
+
+  <div *ngIf="selected !== '' && !newp" class="mt-4 view-container">
+    <app-code-viewer (loadProject)="loadProject($event)" [project_id]="selected" (fnCancel)="deSelect()"></app-code-viewer>
+  </div>
+
 </div>

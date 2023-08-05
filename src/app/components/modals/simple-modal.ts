@@ -10,14 +10,14 @@ export class SimpleModal{
     @Input() placeholder: string = "";
     @Input() title: string = "";
     @Input() btnLaunch:string = ""
+    @Input() public: boolean = false;
     
     @Output() onsave = new EventEmitter<{
         title: string,
         public: boolean
     }>();
-
+    
     text: string = "";
-    public: boolean = false;
 
     fnChangeState(state: boolean){
         this.public = state

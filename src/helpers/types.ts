@@ -1,5 +1,5 @@
 export interface IProjectData{
-    id?: string|number,
+    _id?: string,
     title?: string,
     created_at?: Date |string,
     created_at_str?: string,
