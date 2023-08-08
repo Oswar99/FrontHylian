@@ -7,5 +7,14 @@ export interface IProjectData{
     shared?: boolean,
     html?: string,
     css?: string,
-    js?: string
+    js?: string,
 };
+
+export interface IUser{
+    _id: string,
+    name: string,
+    email:string,
+    img:string,
+    type: "ADMIN" | "ESTANDAR",
+    nickname?: string,
+}

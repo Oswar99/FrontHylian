@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { IUser } from 'src/helpers/types';
 
 @Component({
   selector: 'app-user-profile',
@@ -7,7 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent {
-  constructor (private router: Router){}
+  user:IUser;
+
+  constructor (private router: Router){
+    const utemp: IUser = JSON.parse(localStorage.getItem("user")!);
+    this.user = {...utemp, img: utemp.img? utemp.img: "https://bootdey.com/img/Content/avatar/avatar7.png"}
+  }
   
   irAEditarUsuario(){
     this.router.navigate(['/user-profile-edit']);

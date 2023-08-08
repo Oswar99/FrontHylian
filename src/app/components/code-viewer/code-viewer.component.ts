@@ -22,6 +22,7 @@ export class CodeViewerComponent implements OnInit{
 
   html: SafeHtml;
   share: boolean = false;
+  loading: boolean = true;
 
   htmltext: string = "";
   csstext: string = "";
@@ -48,6 +49,7 @@ export class CodeViewerComponent implements OnInit{
           
           this.loadProject.emit(ptest.title);
           this.project_loaded = ptest;
+          this.loading = false;
         };
       })
     }

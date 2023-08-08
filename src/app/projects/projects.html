@@ -1,6 +1,9 @@
-<div class="py-1">
-  <hylia-navbar [title]="title"></hylia-navbar>
+<loading-page *ngIf="loading"></loading-page>
 
+<div *ngIf="!loading" class="py-1">
+  <hylia-navbar [title]="title"></hylia-navbar>
+  <br>
+  <br>
   <div *ngIf="!newp && selected === ''" class="bar-container row py-3 mt-4">
     <div class="col-md-6 px-5">
       <button class="btn" (click)="changeView()">{{btnnew}}</button>

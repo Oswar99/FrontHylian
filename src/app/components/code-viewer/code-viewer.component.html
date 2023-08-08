@@ -1,4 +1,6 @@
-<div class="container">
+<loading-page *ngIf="project_id !== '' && loading"></loading-page>
+
+<div *ngIf="!(project_id !== '' && loading)" class="container">
   <div class="code-btngroup">
     <button class="btn-max" (click)="onSelectModal(1, 'HTML')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editor HTML</button>
     <button class="btn-max" (click)="onSelectModal(2, 'CSS')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editor CSS</button>

@@ -13,14 +13,15 @@ export class ProjectsComponent {
     newp: boolean = false;
     btnnew: string = 'Nuevo Proyecto';
     title: string = 'Mis Proyectos';
-
+    loading: boolean = true;
     selected: string = '';
 
     constructor(){
         getProjectsByUser().then(v=>{
             if(v.data.successed){
-                this.projects = v.data.projects
+                this.projects = v.data.projects;
             }
+            this.loading = false;
         })
     }
 

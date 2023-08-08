@@ -61,6 +61,12 @@ h1{
   overflow: auto;
 }
 
+.profile, .container-t{
+  background-color: #212529ce !important;
+  border-radius: 5px;
+  color:rgb(209, 209, 209) !important;
+}
+
 
 .card-st, .card-bd{
   background-color: #212529c8 !important;
@@ -112,7 +118,7 @@ h1{
   padding-top: 25px;
 }
 
-.form-h, .bar-container{
+.form-h, .bar-container, .profile{
   
   .btn{
     background-color: #60a5fa;
@@ -125,6 +131,14 @@ h1{
     opacity: 0.7;
     border-style: none;
   }
+}
+
+.loading-page{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 
