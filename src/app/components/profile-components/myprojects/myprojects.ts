@@ -4,16 +4,13 @@ import { IProjectData } from 'src/helpers/types';
 import { getProjectsByUser } from 'src/services/api.service';
 
 @Component({
-    selector: 'project',
-    templateUrl: './projects.html',
+    selector: 'my-projects',
+    templateUrl: './myprojects.html',
     styleUrls: []
 })
 
-export class ProjectsComponent {
+export class MyProjectsComponent {
     projects: IProjectData[] = []
-    newp: boolean = false;
-    btnnew: string = 'Nuevo Proyecto';
-    title: string = 'Mis Proyectos';
     loading: boolean = true;
 
     loadProjects(){
@@ -27,28 +24,10 @@ export class ProjectsComponent {
 
     constructor(private router:Router){
         this.loadProjects();
-        localStorage.removeItem("path");
-    }
-
-    changeView() {
-        if(!this.newp){
-            this.btnnew = 'Volver';
-            this.title = 'Nuevo Proyecto'
-        }else{
-            this.btnnew = 'Nuevo Proyecto';
-            this.title = 'Mis Proyectos';
-            this.loadProjects();
-        }
-        this.newp = !this.newp;
-    }
-
-    loadProject(title:string){
-        this.title = title;
     }
 
     selectProject(id:string){
         this.router.navigate([`projects/${id}`])
     }
-
 
 }

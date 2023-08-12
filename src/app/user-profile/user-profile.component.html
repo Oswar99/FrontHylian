@@ -1,147 +1,141 @@
 <hylia-navbar></hylia-navbar>
 <div class="main-container d-flex row-center">
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="profile py-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="profile py-3">
           <div class="d-flex flex-column align-items-center text-center">
-            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150" />
+            <img
+              src="https://bootdey.com/img/Content/avatar/avatar7.png"
+              alt="Admin"
+              class="rounded-circle"
+              width="150"
+            />
             <div class="mt-3">
-              <h4 class="mb-0">{{ user.name.toUpperCase() }} ({{ user.type }})</h4>
+              <h4 class="mb-0">
+                {{ user.name.toUpperCase() }} ({{ user.type }})
+              </h4>
               <p class="text-secondary mb-2">{{ user.email }}</p>
-              <a class="btn" target="__blank" (click)="irAEditarUsuario()">Editar</a>
+              <a class="btn" target="__blank" (click)="irAEditarUsuario()"
+                >Editar</a
+              >
             </div>
           </div>
-      </div>
+        </div>
 
-      <div class="container-t mt-2 px-3 py-3">
-          <div class="d-flex align-items-center mb-3">
-            <i class="material-icons text-info mr-2">assignment</i><h6 class="ml-3 mb-0">Mis Proyectos</h6>
+        <div class="card container-t mb-2 mt-2">
+          <div class="card-body">
+            <h6 class="d-flex align-items-center mb-3">
+              <i class="material-icons text-info mr-2">assignment</i>Proyectos
+              Compartidos
+            </h6>
+            <h3 class="mb-0">Proyectos compartidos</h3>
+            <ul>
+              <div class="contProyecto">
+                <li><a href="">proyecto 1</a></li>
+              </div>
+              <hr />
+              <div class="contProyecto">
+                <li><a href="">proyecto 2</a></li>
+              </div>
+            </ul>
           </div>
-          <h3 class="mb-0">Recientes</h3>
-          <hr class="my-1" />
-          <ul>
-            <div class="contProyecto">
-              <li><a href="">proyecto 1</a></li>
-            </div>
-            <div class="contProyecto">
-              <li><a href="">proyecto 2</a></li>
-            </div>
-          </ul>
-      </div> 
-      
-    </div>
-    <div class="col-md-8">
-
-      <div class="card container-t mb-2">
-        <div class="card-body">
-          <h6 class="d-flex align-items-center mb-3">
-            <i class="material-icons text-info mr-2">assignment</i
-            >Proyectos Compartidos
-          </h6>
-          <h3 class="mb-0">Proyectos compartidos</h3>
-          <ul>
-            <div class="contProyecto">
-              <li><a href="">proyecto 1</a></li>
-            </div>
-            <hr />
-            <div class="contProyecto">
-              <li><a href="">proyecto 2</a></li>
-            </div>
-          </ul>
         </div>
       </div>
-
-      <div class="row">
+      <div class="col-md-8">
         
-        <div class="col-md-6">
-          <div class="card container-t h-100">
-            <div class="card-body">
-              <h6 class="d-flex align-items-center mb-3"> <i class="material-icons text-info mr-2">account_circle</i>Usuarios Sugeridos</h6>
-              
-              <div class="input-group">
-                <div id="barraBusqueda" class="form-outline">
-                  <input
-                    type="search"
-                    id="form1"
-                    class="form-control"
-                    placeholder="Buscar"
+        <my-projects />
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="card container-t h-100">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">
+                  <i class="material-icons text-info mr-2">account_circle</i
+                  >Usuarios Sugeridos
+                </h6>
+
+                <div class="input-group">
+                  <div id="barraBusqueda" class="form-outline">
+                    <input
+                      type="search"
+                      id="form1"
+                      class="form-control"
+                      placeholder="Buscar"
+                    />
+                    <button type="button" class="btn btn-primary mx-2">
+                      <i class="material-icons">search</i>
+                    </button>
+                  </div>
+                </div>
+
+                <hr />
+                <div class="usuarioSugerido" (click)="verUsuario()">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                    alt="usuario-seguido"
+                    class="rounded-circle"
+                    width="35"
                   />
-                  <button  type="button" class="btn btn-primary mx-2">
-                    <i class="material-icons">search</i>
-                  </button>
+                  <h6>Nombre de usuario sugerido</h6>
+                </div>
+                <hr />
+                <div class="usuarioSugerido">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
+                    alt="usuario-seguido"
+                    class="rounded-circle"
+                    width="35"
+                  />
+                  <h6>Nombre de usuario sugerido</h6>
+                </div>
+                <hr />
+                <div class="usuarioSugerido">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar4.png"
+                    alt="usuario-seguido"
+                    class="rounded-circle"
+                    width="35"
+                  />
+                  <h6>Nombre de usuario sugerido</h6>
                 </div>
               </div>
-  
-              <hr />
-              <div class="usuarioSugerido" (click)="verUsuario()">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                  alt="usuario-seguido"
-                  class="rounded-circle"
-                  width="35"
-                />
-                <h6>Nombre de usuario sugerido</h6>
-              </div>
-              <hr />
-              <div class="usuarioSugerido">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                  alt="usuario-seguido"
-                  class="rounded-circle"
-                  width="35"
-                />
-                <h6>Nombre de usuario sugerido</h6>
-              </div>
-              <hr />
-              <div class="usuarioSugerido">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                  alt="usuario-seguido"
-                  class="rounded-circle"
-                  width="35"
-                />
-                <h6>Nombre de usuario sugerido</h6>
-              </div>
             </div>
           </div>
-        </div>
-        
-        <div class="col-md-6">
-          <div class="card h-100 container-t">
-            <div class="card-body">
-              <h6 class="d-flex align-items-center mb-3">
-                <i class="material-icons text-info mr-2">account_circle</i
-                >Usuarios Seguidos
-              </h6>
-              <div class="usuarioSeguido">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                  alt="usuario-seguido"
-                  class="rounded-circle"
-                  width="35"
-                />
-                <h6>Nombre de usuario seguido</h6>
-              </div>
-              <hr />
-              <div class="usuarioSeguido">
-                <img
-                  src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                  alt="usuario-seguido"
-                  class="rounded-circle"
-                  width="35"
-                />
-                <h6>Nombre de usuario seguido</h6>
-              </div>
-            </div>
-          </div>
-        </div>
 
+          <div class="col-md-6">
+            <div class="card h-100 container-t">
+              <div class="card-body">
+                <h6 class="d-flex align-items-center mb-3">
+                  <i class="material-icons text-info mr-2">account_circle</i
+                  >Usuarios Seguidos
+                </h6>
+                <div class="usuarioSeguido">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                    alt="usuario-seguido"
+                    class="rounded-circle"
+                    width="35"
+                  />
+                  <h6>Nombre de usuario seguido</h6>
+                </div>
+                <hr />
+                <div class="usuarioSeguido">
+                  <img
+                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
+                    alt="usuario-seguido"
+                    class="rounded-circle"
+                    width="35"
+                  />
+                  <h6>Nombre de usuario seguido</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-
     </div>
   </div>
-</div>
 </div>
 
 <div class="container py-3 d-none">
@@ -339,5 +333,3 @@
     </div>
   </div>
 </div>
-
-

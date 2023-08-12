@@ -1,6 +1,6 @@
 import axios from "axios";
 import { LoginProps } from "src/app/login/login.component";
-import { IProjectData } from "src/helpers/types";
+import { IProjectData, IUser } from "src/helpers/types";
 
 axios.interceptors.request.use(
     (config:any) =>{
@@ -23,6 +23,14 @@ export function login(data: LoginProps): Promise<any>{
         .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
     });
 };
+
+export function Register(data: IUser):Promise<any>{
+    return new Promise<any>((resolve)=>{
+        axios.post(`${query}/register`, data)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    })
+}
 
 export function verifyUser(tk:string): Promise<any>{
     return new Promise<any>( resolve => {

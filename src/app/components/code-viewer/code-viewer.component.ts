@@ -5,6 +5,7 @@ import { PrismEditorComponent } from '../prism-editor/prism-editor.component';
 import CoderContent from 'src/helpers/coder.helper';
 import { IProjectData } from 'src/helpers/types';
 import { getProjectById, newProject, updateProjectById } from 'src/services/api.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-code-viewer',
@@ -33,7 +34,7 @@ export class CodeViewerComponent implements OnInit{
 
   project_loaded?: IProjectData;
   
-  constructor(private sanitizer:DomSanitizer){
+  constructor(private sanitizer:DomSanitizer, private router: Router){
     this.html = this.sanitizer.bypassSecurityTrustHtml('');
   };
 
@@ -50,6 +51,8 @@ export class CodeViewerComponent implements OnInit{
           this.loadProject.emit(ptest.title);
           this.project_loaded = ptest;
           this.loading = false;
+        }else{
+          this.router.navigate(['projects'])
         };
       })
     }

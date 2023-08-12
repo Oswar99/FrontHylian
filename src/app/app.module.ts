@@ -19,6 +19,8 @@ import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.
 import { RegisteredUsersComponent } from './registered-users/registered-users.component';
 import { SimpleModal } from './components/modals/simple-modal';
 import { LoadingPage } from './components/loading-page/loading-page';
+import { ProjectVisualizer } from './project-visualizer/project-visualizer';
+import { MyProjectsComponent } from './components/profile-components/myprojects/myprojects';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { LoadingPage } from './components/loading-page/loading-page';
     UserProfileEditComponent,
     RegisteredUsersComponent,
     SimpleModal,
-    LoadingPage
+    LoadingPage,
+    ProjectVisualizer,
+    MyProjectsComponent
   ],
 
   imports: [

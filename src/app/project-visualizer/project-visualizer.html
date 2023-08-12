@@ -1,0 +1,10 @@
+<loading-page *ngIf="loading"></loading-page>
+
+<div *ngIf="!loading" class="py-1">
+  <hylia-navbar [title]="title"></hylia-navbar>
+  <br>
+  <br>
+  <div *ngIf="id !== ''" class="mt-4 view-container">
+    <app-code-viewer (loadProject)="loadProject($event)" [project_id]="id" (fnCancel)="deSelect()"></app-code-viewer>
+  </div>
+</div>

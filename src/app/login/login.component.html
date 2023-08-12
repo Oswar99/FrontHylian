@@ -16,7 +16,7 @@
         <div class="form-h px-5 py-4 w-8">
           <h1 class="mb-4">Iniciar sesion</h1>
           <input class="form-control" placeholder="Usuario" name="email" (change)='useChange.handleChange($event)' />
-          <input class="form-control" placeholder="Contraseña" name="pass"  (change)='useChange.handleChange($event)' />
+          <input class="form-control" type="password" placeholder="Contraseña" name="pass"  (change)='useChange.handleChange($event)' />
           <button (click)="irAProyectos()" class="btn mb-3 mt-4">
             Acceder
           </button>

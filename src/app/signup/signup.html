@@ -7,22 +7,33 @@
 
 <section class="main rounded py-5 px-4 shadow container">
     <div class="row justify-content-center align-items-center">
-        <div class="col-md-6 px-5">
+        <div class="col-md-10 px-5">
             <div class="form-h px-5 py-4">
-                <h1 class="mb-4 mt-2">Registrarse</h1>
-                <input class="form-control" placeholder="Nombre" />
-                <input class="form-control" placeholder="Apellido" />
-                <input class="form-control" placeholder="Correo" />
-                <input class="form-control" placeholder="Contraseña" />
-                <input class="form-control" placeholder="Repita la Contraseña" />
-                <label for="opciones">Tipo de Usuario:</label>
+              <h1 class="mb-5 mt-3">Bienvenido a Hylia Note!</h1>
+                <div class="row">
+                  <div class="col-md-6">
+                    <h4>Datos Personales</h4>
+                    <hr />
+                    <input class="form-control" name="name" (input)="ch.handleChange($event)" placeholder="Nombres" />
+                    <input class="form-control" name="lastname" (input)="ch.handleChange($event)" placeholder="Apellidos" />
+                    <input class="form-control" name="email" (input)="ch.handleChange($event)" placeholder="Correo" />
+                  </div>
+                  <div class="col-md-6">
+                    <h4>Datos de la cuenta</h4>
+                    <hr/>
+                    <input class="form-control" name="nickname" (input)="ch.handleChange($event)" placeholder="Nombre de Usuario" />
+                    <input type="password" class="form-control" name="pass" (input)="ch.handleChange($event)" placeholder="Contraseña" />
+                    <input type="password" class="form-control" placeholder="Repita la Contraseña" />
+                    <label class="d-none" for="opciones">Tipo de Usuario:</label>
+                  </div>
+                </div>
                 &nbsp;
-                  <select id="opciones">
+                  <select class="d-none" id="opciones">
                       <option value="opcion1">Gratis</option>
                       <option value="opcion2">PRO</option>
                   </select>
                   <br>
-                <button (click)="irALogin()" class="btn mb-4 mt-4">Continuar</button>
+                <button (click)="registerUser()" class="btn mb-4 mt-4">Continuar</button>
             </div>
         </div>
     </div>

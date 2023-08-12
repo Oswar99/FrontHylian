@@ -12,7 +12,8 @@ export class UserProfileComponent {
 
   constructor (private router: Router){
     const utemp: IUser = JSON.parse(localStorage.getItem("user")!);
-    this.user = {...utemp, img: utemp.img? utemp.img: "https://bootdey.com/img/Content/avatar/avatar7.png"}
+    this.user = {...utemp, img: utemp.img? utemp.img: "https://bootdey.com/img/Content/avatar/avatar7.png"};
+    localStorage.setItem('path',"user-profile")
   }
   
   irAEditarUsuario(){

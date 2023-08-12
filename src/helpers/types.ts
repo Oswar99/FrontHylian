@@ -11,10 +11,15 @@ export interface IProjectData{
 };
 
 export interface IUser{
-    _id: string,
+    _id?: string,
     name: string,
+    lastname:string,
     email:string,
-    img:string,
-    type: "ADMIN" | "ESTANDAR",
+    img?:string,
+    type?: "ADMIN" | "ESTANDAR",
     nickname?: string,
+    pass?:string,
+    enabled?:boolean,
+    joinTime?:Date,
+    lastSession?:Date
 }

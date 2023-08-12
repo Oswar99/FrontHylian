@@ -9,12 +9,14 @@ import { TryItComponent } from './try-it/try-it';
 import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
 import { RegisteredUsersComponent } from './registered-users/registered-users.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ProjectVisualizer } from './project-visualizer/project-visualizer';
 
 const routes: Routes = [
   {path: '', component:LandingPageComponent},
   {path: 'try-it', component:TryItComponent},
   {path: 'login', component:LoginComponent},
   {path: 'projects', component: ProjectsComponent},
+  {path: 'projects/:id', component: ProjectVisualizer},
   {path: 'user-profile', component: UserProfileComponent},
   {path: 'signup', component:SignupComponent},
   {path: 'user-profile-edit', component: UserProfileEditComponent},

@@ -31,6 +31,12 @@ export class LateralBarComponent implements OnInit{
     
     constructor (private router: Router){}
 
+    logout(){
+        localStorage.removeItem("user");
+        localStorage.removeItem("tk");
+        this.router.navigate(['']);
+    }
+
     irAPerfil(){
         this.router.navigate(['/user-profile']);
     }
