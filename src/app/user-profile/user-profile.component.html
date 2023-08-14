@@ -1,8 +1,9 @@
 <hylia-navbar></hylia-navbar>
 <div class="main-container d-flex row-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
+  
+  <div class="container mt-5">
+    <div class="row mt-3">
+      <div class="col-md-4 mt-2">
         <div class="profile py-3">
           <div class="d-flex flex-column align-items-center text-center">
             <img
@@ -16,317 +17,46 @@
                 {{ user.name.toUpperCase() }} ({{ user.type }})
               </h4>
               <p class="text-secondary mb-2">{{ user.email }}</p>
-              <a class="btn" target="__blank" (click)="irAEditarUsuario()"
+              <a
+                *ngIf="!edit"
+                class="btn"
+                target="__blank"
+                (click)="irAEditarUsuario()"
                 >Editar</a
               >
             </div>
           </div>
         </div>
-
-        <div class="card container-t mb-2 mt-2">
-          <div class="card-body">
-            <h6 class="d-flex align-items-center mb-3">
-              <i class="material-icons text-info mr-2">assignment</i>Proyectos
-              Compartidos
-            </h6>
-            <h3 class="mb-0">Proyectos compartidos</h3>
-            <ul>
-              <div class="contProyecto">
-                <li><a href="">proyecto 1</a></li>
-              </div>
-              <hr />
-              <div class="contProyecto">
-                <li><a href="">proyecto 2</a></li>
-              </div>
-            </ul>
-          </div>
+        <div class="profile py-3 mt-2 px-4">
+          <h3 class="mt-3 mb-2">Informacion</h3>
+          <hr />
+          <h5><b>Tipo de usuario: </b>{{ user.type }}</h5>
+          <h5><b>Ultima vez en linea: </b>{{ user.lastSession }}</h5>
+          <h5><b>Se unio en: </b>{{ user.joinTime }}</h5>
         </div>
       </div>
-      <div class="col-md-8">
-        
-        <my-projects />
 
+      <div *ngIf="edit" class="col-md-8 mt-2">
+        <profile-edit (btnCancel)="fnCancelEdit()"></profile-edit>
+      </div>
+
+      <div *ngIf="!edit" class="col-md-8 mt-2">
         <div class="row">
-          <div class="col-md-6">
-            <div class="card container-t h-100">
-              <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">
-                  <i class="material-icons text-info mr-2">account_circle</i
-                  >Usuarios Sugeridos
-                </h6>
-
-                <div class="input-group">
-                  <div id="barraBusqueda" class="form-outline">
-                    <input
-                      type="search"
-                      id="form1"
-                      class="form-control"
-                      placeholder="Buscar"
-                    />
-                    <button type="button" class="btn btn-primary mx-2">
-                      <i class="material-icons">search</i>
-                    </button>
-                  </div>
-                </div>
-
-                <hr />
-                <div class="usuarioSugerido" (click)="verUsuario()">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="usuario-seguido"
-                    class="rounded-circle"
-                    width="35"
-                  />
-                  <h6>Nombre de usuario sugerido</h6>
-                </div>
-                <hr />
-                <div class="usuarioSugerido">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                    alt="usuario-seguido"
-                    class="rounded-circle"
-                    width="35"
-                  />
-                  <h6>Nombre de usuario sugerido</h6>
-                </div>
-                <hr />
-                <div class="usuarioSugerido">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                    alt="usuario-seguido"
-                    class="rounded-circle"
-                    width="35"
-                  />
-                  <h6>Nombre de usuario sugerido</h6>
-                </div>
-              </div>
-            </div>
+          <div class="col-md-6 mb-2">
+            <my-projects />
           </div>
-
-          <div class="col-md-6">
-            <div class="card h-100 container-t">
-              <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">
-                  <i class="material-icons text-info mr-2">account_circle</i
-                  >Usuarios Seguidos
-                </h6>
-                <div class="usuarioSeguido">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="usuario-seguido"
-                    class="rounded-circle"
-                    width="35"
-                  />
-                  <h6>Nombre de usuario seguido</h6>
-                </div>
-                <hr />
-                <div class="usuarioSeguido">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                    alt="usuario-seguido"
-                    class="rounded-circle"
-                    width="35"
-                  />
-                  <h6>Nombre de usuario seguido</h6>
-                </div>
-              </div>
-            </div>
+          <div class="col-md-6 mb-2">
+            <my-projects
+              *ngIf="!edit"
+              project_type="PUBLIC"
+              title="Mis Proyectos Publicos"
+            ></my-projects>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container py-3 d-none">
-  <div class="main-body">
-    <div class="row gutters-sm">
-      <div class="col-md-4 mb-3">
-        <div class="card profile">
-          <div class="card-body">
-            <div class="d-flex flex-column align-items-center text-center">
-              <img
-                src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                alt="Admin"
-                class="rounded-circle"
-                width="150"
-              />
-              <div class="mt-3">
-                <h4 class="mb-0">
-                  {{ user.name.toUpperCase() }} ({{ user.type }})
-                </h4>
-                <p class="text-secondary mb-2">{{ user.email }}</p>
-                <a class="btn" target="__blank" (click)="irAEditarUsuario()"
-                  >Editar</a
-                >
-              </div>
-            </div>
+          <div class="col-md-6 mt-2">
+            <suggested-users [fnClick]="btnUserClick" />
           </div>
-        </div>
-        &nbsp;
-        <div class="card">
-          <div class="card-body">
-            <h6 class="d-flex align-items-center mb-3">
-              <i class="material-icons text-info mr-2">account_circle</i
-              >Usuarios Sugeridos
-            </h6>
-            <div class="input-group">
-              <div id="barraBusqueda" class="form-outline">
-                <input
-                  type="search"
-                  id="form1"
-                  class="form-control"
-                  placeholder="Buscar"
-                />
-                <button type="button" class="btn btn-primary">
-                  <i class="material-icons">search</i>
-                </button>
-              </div>
-            </div>
-            <hr />
-            <div class="usuarioSugerido" (click)="verUsuario()">
-              <img
-                src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                alt="usuario-seguido"
-                class="rounded-circle"
-                width="35"
-              />
-              <h6>Nombre de usuario sugerido</h6>
-            </div>
-            <hr />
-            <div class="usuarioSugerido">
-              <img
-                src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                alt="usuario-seguido"
-                class="rounded-circle"
-                width="35"
-              />
-              <h6>Nombre de usuario sugerido</h6>
-            </div>
-            <hr />
-            <div class="usuarioSugerido">
-              <img
-                src="https://bootdey.com/img/Content/avatar/avatar4.png"
-                alt="usuario-seguido"
-                class="rounded-circle"
-                width="35"
-              />
-              <h6>Nombre de usuario sugerido</h6>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-8">
-        <div class="card mb-3">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Nombre de Usuario</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">Nombre de Usuario</div>
-            </div>
-            <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Nombre</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">Nombre</div>
-            </div>
-            <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Email</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">usuario@correo.com</div>
-            </div>
-            <hr />
-            <div class="row">
-              <div class="col-sm-3">
-                <h6 class="mb-0">Direccion</h6>
-              </div>
-              <div class="col-sm-9 text-secondary">Opcional</div>
-            </div>
-            <hr />
-            <div class="row">
-              <div class="col-sm-12"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-8">
-          <div class="card mb-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">
-                  <i class="material-icons text-info mr-2">assignment</i>Mis
-                  proyectos
-                </h6>
-                <h3 class="mb-0">Proyectos</h3>
-                <ul>
-                  <div class="contProyecto">
-                    <li><a href="">proyecto 1</a></li>
-                  </div>
-                  <hr />
-                  <div class="contProyecto">
-                    <li><a href="">proyecto 2</a></li>
-                  </div>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row gutters-sm">
-          <div class="col-sm-6 mb-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">
-                  <i class="material-icons text-info mr-2">assignment</i
-                  >Proyectos Compartidos
-                </h6>
-                <h3 class="mb-0">Proyectos compartidos</h3>
-                <ul>
-                  <div class="contProyecto">
-                    <li><a href="">proyecto 1</a></li>
-                  </div>
-                  <hr />
-                  <div class="contProyecto">
-                    <li><a href="">proyecto 2</a></li>
-                  </div>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-sm-6 mb-3">
-            <div class="card h-100">
-              <div class="card-body">
-                <h6 class="d-flex align-items-center mb-3">
-                  <i class="material-icons text-info mr-2">account_circle</i
-                  >Usuarios Seguidos
-                </h6>
-                <div class="usuarioSeguido">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar6.png"
-                    alt="usuario-seguido"
-                    class="rounded-circle"
-                    width="35"
-                  />
-                  <h6>Nombre de usuario seguido</h6>
-                </div>
-                <hr />
-                <div class="usuarioSeguido">
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                    alt="usuario-seguido"
-                    class="rounded-circle"
-                    width="35"
-                  />
-                  <h6>Nombre de usuario seguido</h6>
-                </div>
-              </div>
-            </div>
+          <div class="col-md-6 mt-2">
+            <followed-users />
           </div>
         </div>
       </div>

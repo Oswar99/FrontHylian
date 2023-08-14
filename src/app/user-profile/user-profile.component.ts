@@ -9,6 +9,7 @@ import { IUser } from 'src/helpers/types';
 })
 export class UserProfileComponent {
   user:IUser;
+  edit: boolean = false;
 
   constructor (private router: Router){
     const utemp: IUser = JSON.parse(localStorage.getItem("user")!);
@@ -17,11 +18,15 @@ export class UserProfileComponent {
   }
   
   irAEditarUsuario(){
-    this.router.navigate(['/user-profile-edit']);
+    this.edit = true;
   }
 
-  verUsuario(){
-    this.router.navigate(['/registered-users']);
+  fnCancelEdit(){
+    this.edit = false;
+  }
+
+  btnUserClick(id:string){
+    this.router.navigate([`/users/${id}`]);
   }
   
 }

@@ -15,12 +15,15 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { SignupComponent } from './signup/signup';
 import { TryItComponent } from './try-it/try-it';
 import {  NavLogoComponent } from './components/navbar/navlogo';
-import { UserProfileEditComponent } from './user-profile-edit/user-profile-edit.component';
+import { UserProfileEditComponent } from './components/profile-components/user-profile-edit/user-profile-edit.component';
 import { RegisteredUsersComponent } from './registered-users/registered-users.component';
 import { SimpleModal } from './components/modals/simple-modal';
 import { LoadingPage } from './components/loading-page/loading-page';
 import { ProjectVisualizer } from './project-visualizer/project-visualizer';
 import { MyProjectsComponent } from './components/profile-components/myprojects/myprojects';
+import { SuggestedUsersComponent } from './components/profile-components/users/suggested';
+import { FollowedUsersComponent } from './components/profile-components/users/followed';
+import { UserViewComponent } from './user-view/user-view';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { MyProjectsComponent } from './components/profile-components/myprojects/
     SimpleModal,
     LoadingPage,
     ProjectVisualizer,
-    MyProjectsComponent
+    MyProjectsComponent,
+    SuggestedUsersComponent,
+    FollowedUsersComponent,
+    UserViewComponent
   ],
 
   imports: [

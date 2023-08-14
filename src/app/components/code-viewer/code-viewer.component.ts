@@ -4,7 +4,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { PrismEditorComponent } from '../prism-editor/prism-editor.component';
 import CoderContent from 'src/helpers/coder.helper';
 import { IProjectData } from 'src/helpers/types';
-import { getProjectById, newProject, updateProjectById } from 'src/services/api.service';
+import { getProjectById, newProject, shareWithUser, updateProjectById } from 'src/services/api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -29,6 +29,8 @@ export class CodeViewerComponent implements OnInit{
   csstext: string = "";
   jstext: string = "";
 
+  editable: boolean = true;
+
   modaltitle: string = "";
   selectedmodal: 1|2|3|undefined;
 
@@ -51,6 +53,8 @@ export class CodeViewerComponent implements OnInit{
           this.loadProject.emit(ptest.title);
           this.project_loaded = ptest;
           this.loading = false;
+
+          this.editable = v.data.editable
         }else{
           this.router.navigate(['projects'])
         };
@@ -131,6 +135,19 @@ export class CodeViewerComponent implements OnInit{
       }else{
         alert("Ha ocurrido un error")
       }
+    })
+  };
+
+  getPId(){
+    return this.project_id;
+  }
+
+  shareWith(id:string, pid:string){
+    shareWithUser({
+      project: pid,
+      id: id
+    }).then(v=>{
+      alert(v.data.message);
     })
   }
   

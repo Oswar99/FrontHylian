@@ -1,0 +1,26 @@
+<div class="container py-2">
+    <div class="form-h px-5 py-4">
+        <h2 class="mb-3 mt-2">Edita tus datos</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Datos Personales</h4>
+                <hr />
+                <input class="form-control mb-2" name="name" (input)="ch.handleChange($event)" placeholder="Nombres" />
+                <input class="form-control mb-2" name="lastname" (input)="ch.handleChange($event)" placeholder="Apellidos" />
+                <input class="form-control mb-2" name="email" (input)="ch.handleChange($event)" placeholder="Correo" />
+            </div>
+            <div class="col-md-6">
+                <h4>Datos de la cuenta</h4>
+                <hr/>
+                <input class="form-control mb-2" name="nickname" (input)="ch.handleChange($event)" placeholder="Nombre de Usuario" />
+                <input type="password" class="form-control mb-2" name="pass" (input)="ch.handleChange($event)" placeholder="Contraseña" />
+                <input type="password" class="form-control mb-2" placeholder="Repita la Contraseña" />
+                <label class="d-none" for="opciones">Tipo de Usuario:</label>
+            </div>
+        </div>
+        <div class="d-flex row-reverse">
+            <button class="btn mt-3 mx-1" (click)="fnSave()">Guardar</button>
+            <button class="btn btn2 mt-3 mx-1" (click)="fnCancel()">Cancelar</button>
+        </div>
+    </div>
+</div>

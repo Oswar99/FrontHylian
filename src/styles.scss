@@ -61,6 +61,25 @@ h1{
   overflow: auto;
 }
 
+.user-select{
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor:pointer;
+}
+
+.user-select:hover{
+  background-color:#212529;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #bcbcbc;
+}
+
+.body-share{
+  min-height: 70vh;
+}
+
 .profile, .container-t{
   background-color: #212529ce !important;
   border-radius: 5px;
@@ -119,7 +138,6 @@ h1{
 }
 
 .form-h, .bar-container, .profile, .form-btn{
-  
   .btn{
     background-color: #60a5fa;
     color:white;
@@ -128,6 +146,18 @@ h1{
   
   .btn:active{
     background-color: #60a5fa;
+    opacity: 0.7;
+    border-style: none;
+  }
+
+  .btn2{
+    background-color: #405672;
+    color:white;
+    border-style: none;
+  }
+  
+  .btn2:active{
+    background-color: #405672;
     opacity: 0.7;
     border-style: none;
   }

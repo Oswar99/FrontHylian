@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProjectData } from 'src/helpers/types';
 import { getProjectsByUser } from 'src/services/api.service';
@@ -9,12 +9,15 @@ import { getProjectsByUser } from 'src/services/api.service';
     styleUrls: []
 })
 
-export class MyProjectsComponent {
+export class MyProjectsComponent implements OnInit {
+    @Input() title: string = "Mis Proyectos";
+    @Input() project_type: string = "";
+
     projects: IProjectData[] = []
     loading: boolean = true;
 
     loadProjects(){
-        getProjectsByUser().then(v=>{
+        getProjectsByUser(this.project_type).then(v=>{
             if(v.data.successed){
                 this.projects = v.data.projects;
             }
@@ -22,7 +25,9 @@ export class MyProjectsComponent {
         });
     };
 
-    constructor(private router:Router){
+    constructor(private router:Router){}
+    
+    ngOnInit(): void {
         this.loadProjects();
     }
 

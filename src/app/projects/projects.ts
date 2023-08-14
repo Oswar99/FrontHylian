@@ -17,7 +17,7 @@ export class ProjectsComponent {
     loading: boolean = true;
 
     loadProjects(){
-        getProjectsByUser().then(v=>{
+        getProjectsByUser("").then(v=>{
             if(v.data.successed){
                 this.projects = v.data.projects;
             }

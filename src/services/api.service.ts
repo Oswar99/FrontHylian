@@ -40,6 +40,50 @@ export function verifyUser(tk:string): Promise<any>{
     });
 };
 
+export function findUSer(search:string): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.get(`${query}/users?search=${search}`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+export function getUserById(id:string): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.get(`${query}/users/${id}`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+
+export function followUser(data: {id:string}): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.post(`${query}/follow/users`, data)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+export function unfollowUser(data: {id:string}): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.put(`${query}/follow/users`, data)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+export function getFollowedUsers(): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.get(`${query}/follow/users`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+
+
+
 
 //projects
 
@@ -51,9 +95,9 @@ export function newProject(data: IProjectData): Promise<any>{
     });
 };
 
-export function getProjectsByUser(): Promise<any>{
+export function getProjectsByUser(type: string): Promise<any>{
     return new Promise<any>( resolve => {
-        axios.get(`${query}/project`)
+        axios.get(`${query}/project?type=${type}`)
         .then(result => resolve(result) )
         .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
     });
@@ -70,6 +114,14 @@ export function getProjectById(id:string): Promise<any>{
 export function updateProjectById(id:string, data:IProjectData): Promise<any>{
     return new Promise<any>( resolve => {
         axios.put(`${query}/project/${id}`, data)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+export function shareWithUser(body: {project: string, id: string}): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.post(`${query}/share`, body)
         .then(result => resolve(result) )
         .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
     });
