@@ -4,24 +4,25 @@
         <i class="material-icons text-info mr-2">account_circle</i
         >Usuarios Seguidos
       </h6>
-      <div class="usuarioSeguido">
-        <img
-          src="https://bootdey.com/img/Content/avatar/avatar6.png"
-          alt="usuario-seguido"
-          class="rounded-circle"
-          width="35"
-        />
-        <h6>Nombre de usuario seguido</h6>
-      </div>
+      
       <hr />
-      <div class="usuarioSeguido">
-        <img
-          src="https://bootdey.com/img/Content/avatar/avatar5.png"
-          alt="usuario-seguido"
-          class="rounded-circle"
-          width="35"
-        />
-        <h6>Nombre de usuario seguido</h6>
+
+      <div *ngIf="users.length === 0">
+        <h6>Aun no sigue a ningun usuario.</h6>
       </div>
+
+      <div *ngFor="let user of users">
+        <div class="container-fluid py-2 user-select" (click)="btnClick(user._id!)">
+          <img
+            src={{user.img}}
+            alt={{user.nickname}}
+            class="rounded-circle"
+            width="45"
+          />
+          <h4 class="mb-0 mx-3">{{user.name}} {{user.lastname}} ({{user.nickname}})</h4>
+        </div>
+        <hr class="my-0 d-none" />
+      </div>
+
     </div>
   </div>

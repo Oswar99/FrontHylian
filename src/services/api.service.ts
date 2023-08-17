@@ -126,3 +126,27 @@ export function shareWithUser(body: {project: string, id: string}): Promise<any>
         .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
     });
 };
+
+export function deleteShare(project: string, user: string): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.delete(`${query}/share?project=${project}&user=${user}`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+export function getShares(id:string): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.get(`${query}/share?id=${id}`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+export function getShareByUser(): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.get(`${query}/v2/share`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};

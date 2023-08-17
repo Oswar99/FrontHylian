@@ -14,7 +14,7 @@
             />
             <div class="mt-3">
               <h4 class="mb-0">
-                {{ user.name.toUpperCase() }} ({{ user.type }})
+                {{ user.name.toUpperCase() }} {{ user.lastname.toUpperCase() }} ({{ user.nickname }})
               </h4>
               <p class="text-secondary mb-2">{{ user.email }}</p>
               <a
@@ -45,18 +45,21 @@
           <div class="col-md-6 mb-2">
             <my-projects />
           </div>
-          <div class="col-md-6 mb-2">
+          <div class="col-md-6 mb-2 d-none">
             <my-projects
               *ngIf="!edit"
               project_type="PUBLIC"
               title="Mis Proyectos Publicos"
             ></my-projects>
           </div>
-          <div class="col-md-6 mt-2">
-            <suggested-users [fnClick]="btnUserClick" />
+          <div class="col-md-6 mb-2">
+            <shared-projects />
           </div>
           <div class="col-md-6 mt-2">
-            <followed-users />
+            <suggested-users (fnOnClick)="btnUserClick($event)" />
+          </div>
+          <div class="col-md-6 mt-2">
+            <followed-users (fnOnClick)="btnUserClick($event)" />
           </div>
         </div>
       </div>

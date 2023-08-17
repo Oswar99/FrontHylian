@@ -3,8 +3,8 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { PrismEditorComponent } from '../prism-editor/prism-editor.component';
 import CoderContent from 'src/helpers/coder.helper';
-import { IProjectData } from 'src/helpers/types';
-import { getProjectById, newProject, shareWithUser, updateProjectById } from 'src/services/api.service';
+import { IProjectData, IUser } from 'src/helpers/types';
+import { deleteShare, getProjectById, getShares, newProject, shareWithUser, updateProjectById } from 'src/services/api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -24,6 +24,8 @@ export class CodeViewerComponent implements OnInit{
   html: SafeHtml;
   share: boolean = false;
   loading: boolean = true;
+
+  users: IUser[] = [];
 
   htmltext: string = "";
   csstext: string = "";
@@ -87,7 +89,16 @@ export class CodeViewerComponent implements OnInit{
 
   modalAbierta: boolean = false;
 
+  loadShare(){
+    getShares(this.project_id).then(v=>{
+      if(v.data.successed){
+        this.users = v.data.list;
+      }
+    })
+  }
+
   abrirModal() {
+    this.loadShare();
     this.modalAbierta = true;
   }
 
@@ -142,12 +153,21 @@ export class CodeViewerComponent implements OnInit{
     return this.project_id;
   }
 
-  shareWith(id:string, pid:string){
+  shareWith(id:string){
     shareWithUser({
-      project: pid,
+      project: this.project_id,
       id: id
     }).then(v=>{
       alert(v.data.message);
+      this.loadShare();
+    })
+  }
+
+  btnDeleteShare(id: string){
+    deleteShare(this.project_id, id).then(v=>{
+      if(v.data.successed){
+        this.loadShare();
+      }
     })
   }
   

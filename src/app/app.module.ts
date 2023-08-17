@@ -24,6 +24,8 @@ import { MyProjectsComponent } from './components/profile-components/myprojects/
 import { SuggestedUsersComponent } from './components/profile-components/users/suggested';
 import { FollowedUsersComponent } from './components/profile-components/users/followed';
 import { UserViewComponent } from './user-view/user-view';
+import { SharedProjects } from './components/profile-components/myprojects/sharedprojects';
+import { FileUploadComponent } from './components/file-upload/file-upload';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { UserViewComponent } from './user-view/user-view';
     MyProjectsComponent,
     SuggestedUsersComponent,
     FollowedUsersComponent,
-    UserViewComponent
+    UserViewComponent,
+    SharedProjects,
+    FileUploadComponent
   ],
 
   imports: [

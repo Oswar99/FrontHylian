@@ -61,7 +61,7 @@ h1{
   overflow: auto;
 }
 
-.user-select{
+.user-select, .user-element{
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -92,6 +92,7 @@ h1{
   border-radius: 5px;
   color:rgb(209, 209, 209) !important;
   height: 100%;
+  cursor: pointer;
 }
 
 .table-rw{

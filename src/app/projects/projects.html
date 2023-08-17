@@ -18,6 +18,7 @@
   </div>
 
   <div *ngIf="!newp" class="container py-3 table scrollbar">
+    <p>*Nota: doble click para abrir un proyecto.</p>
     <div class="row pr">
       <div *ngFor="let p of projects" class="col-lg-4 mb-3 px-3">
         <div class="card-st card h-100" (dblclick)="selectProject(p._id!)">

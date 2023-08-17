@@ -12,13 +12,13 @@
         placeholder="Buscar"
         (input)="findUser($event)"
       />
-      <button type="button" class="btn btn-primary d-flex row-center" (click)="findUser()">
+      <button type="button" class="btn btn-primary d-flex row-center" (click)="fnSearch()">
         <i class="material-icons">search</i>
       </button>
     </div>
 
     <div *ngFor="let user of users">
-      <div class="container-fluid py-2 user-select" (click)="fnClick(user._id!, pid)">
+      <div class="container-fluid py-2 user-select" (click)="btnClick(user._id!)">
         <img
           src={{user.img}}
           alt={{user.nickname}}

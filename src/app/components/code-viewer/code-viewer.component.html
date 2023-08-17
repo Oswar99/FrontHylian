@@ -95,7 +95,7 @@
 
 <!-- Modal -->
 <div class="modal" [ngClass]="{'d-block': modalAbierta, 'd-none': !modalAbierta}">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xl">
     <div class="modal-content bg-dark text-light">
       <div class="modal-header">
         <h3 class="modal-title mb-0">Compartir con:</h3>
@@ -105,7 +105,34 @@
       </div>
 
       <div class="modal-body body-share">
-        <suggested-users title="Buscar un usuario" [pid]="project_id" [fnClick]="shareWith" />
+        <div class="row">
+          <div class="col-md-5" style="overflow-y: auto;">
+            <div>
+              <suggested-users (fnOnClick)="shareWith($event)" title="Buscar un usuario"  />
+              <followed-users (fnOnClick)="shareWith($event)" ></followed-users>
+            </div>
+          </div>
+          <div class="col-md-7">
+            <h1>Compartido con:</h1>
+            <hr />
+            <h5 *ngIf="users.length === 0">No se ha compartido con nadie aun.</h5>
+          
+            <div *ngFor="let user of users">
+              <div class="container-fluid py-2 user-element">
+                <img
+                  src={{user.img}}
+                  alt={{user.nickname}}
+                  class="rounded-circle"
+                  width="45"
+                />
+                <h4 class="mb-0 mx-3">{{user.name}} {{user.lastname}} ({{user.nickname}})</h4>
+                <button class="btn btn-danger" (click)="btnDeleteShare(user._id!)"><i class="fa-solid fa-trash"></i></button>
+              </div>
+              <hr class="my-0 d-none" />
+            </div>
+
+          </div>
+        </div>
       </div>
 
       <div class="modal-footer">
