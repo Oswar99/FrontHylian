@@ -7,7 +7,7 @@ import { IUser } from 'src/helpers/types';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
-export class UserProfileComponent {
+export class UserProfileComponent  {
   user:IUser;
   edit: boolean = false;
 
@@ -15,7 +15,8 @@ export class UserProfileComponent {
     const utemp: IUser = JSON.parse(localStorage.getItem("user")!);
     this.user = {...utemp, img: utemp.img? utemp.img: "https://bootdey.com/img/Content/avatar/avatar7.png"};
     localStorage.setItem('path',"user-profile")
-  }
+  };
+  
   
   irAEditarUsuario(){
     this.edit = true;

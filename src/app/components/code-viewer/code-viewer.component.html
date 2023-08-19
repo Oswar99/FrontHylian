@@ -1,6 +1,11 @@
 <loading-page *ngIf="project_id !== '' && loading"></loading-page>
 
-<div *ngIf="!(project_id !== '' && loading)" class="container">
+<folder-view 
+  *ngIf="!(project_id !== '' && loading) && carpet"
+  [folder]="project_loaded"
+></folder-view>
+
+<div *ngIf="!(project_id !== '' && loading) && !carpet" class="container">
   <div class="code-btngroup">
     <button class="btn-max" (click)="onSelectModal(1, 'HTML')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editor HTML</button>
     <button class="btn-max" (click)="onSelectModal(2, 'CSS')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Editor CSS</button>
@@ -9,25 +14,31 @@
   
   <div class="row code-row">
     <div class="col-md-4 mb-3 pr">
-      <app-prism-editor [textareaContent]="htmltext"
-      (codeChange)="onHtmlChange($event, 1)"
-      ></app-prism-editor>
+      <div class="cont-edit scrollbar">
+        <app-prism-editor [textareaContent]="htmltext"
+        (codeChange)="onHtmlChange($event, 1)"
+        ></app-prism-editor>
+      </div>
       <button class="btn-max" (click)="onSelectModal(1, 'HTML')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-maximize"></i></button>
     </div>
     
     <div class="col-md-4 mb-3 pr">
-      <app-prism-editor [textareaContent]="csstext"
-      (codeChange)="onHtmlChange($event, 2)"
-      codeType="css"
-      ></app-prism-editor>
+      <div class="cont-edit scrollbar">
+        <app-prism-editor [textareaContent]="csstext"
+        (codeChange)="onHtmlChange($event, 2)"
+        codeType="css"
+        ></app-prism-editor>
+      </div>
       <button class="btn-max" (click)="onSelectModal(2, 'CSS')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" ><i class="fa-solid fa-maximize"></i></button>
     </div>
     
     <div class="col-md-4 mb-3 pr">
-      <app-prism-editor [textareaContent]="jstext"
-      (codeChange)="onHtmlChange($event, 3)"
-      codeType="js"
-      ></app-prism-editor>
+      <div class="cont-edit scrollbar">
+        <app-prism-editor [textareaContent]="jstext"
+        (codeChange)="onHtmlChange($event, 3)"
+        codeType="js"
+        ></app-prism-editor>
+      </div>
       <button class="btn-max" (click)="onSelectModal(3, 'JAVASCRIPT')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" ><i class="fa-solid fa-maximize"></i></button>
     </div>
   </div>
@@ -37,12 +48,13 @@
   </div>
   
   <div *ngIf="enablesave" class="editor-save py-3">
-    <button *ngIf="share && editable" id="btnCompartir" class="btn btn-success" (click)="abrirModal()">Compartir</button>
-    &nbsp;
-    <simple-modal *ngIf="project_id === ''" (onsave)="fnSave($event)" btnLaunch="Guardar" title="Guardar un nuevo proyecto" placeholder="Ingrese un nombre para su proyecto"></simple-modal>
-    <simple-modal *ngIf="project_id && editable" (onsave)="fnUpdate($event)" btnLaunch="Guardar" title="Actualizar proyecto" [placeholder]="project_loaded!.title!" [public]="project_loaded!.public"></simple-modal>
-    &nbsp;
-    <button class="btn btn-secondary mr-2" (click)="fnCancel.emit()">Volver</button>
+    <div class="mx-2">
+      <share-modal *ngIf="share && editable" [project_id]="project_id"></share-modal>
+    </div>
+    <simple-modal icon="fa-solid fa-save" *ngIf="project_id === ''" (onsave)="fnSave($event)" btnLaunch="Guardar" title="Guardar un nuevo proyecto" placeholder="Ingrese un nombre para su proyecto"></simple-modal>
+    <simple-modal icon="fa-solid fa-save" *ngIf="project_id && editable" (onsave)="fnUpdate($event)" btnLaunch="Guardar" title="Actualizar proyecto" [placeholder]="project_loaded!.title!" [public]="project_loaded!.public"></simple-modal>
+    <button class="btn btn-danger mx-2"><i class="fa-solid fa-trash"></i></button>
+    <button class="btn btn-secondary" (click)="fnCancel.emit()"><i class="fa-solid fa-arrow-left" ></i></button>
   </div>
   
 </div>
@@ -92,53 +104,3 @@
 </div>
 
 
-
-<!-- Modal -->
-<div class="modal" [ngClass]="{'d-block': modalAbierta, 'd-none': !modalAbierta}">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content bg-dark text-light">
-      <div class="modal-header">
-        <h3 class="modal-title mb-0">Compartir con:</h3>
-        <button type="button" class="btn-close" (click)="cerrarModal()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <div class="modal-body body-share">
-        <div class="row">
-          <div class="col-md-5" style="overflow-y: auto;">
-            <div>
-              <suggested-users (fnOnClick)="shareWith($event)" title="Buscar un usuario"  />
-              <followed-users (fnOnClick)="shareWith($event)" ></followed-users>
-            </div>
-          </div>
-          <div class="col-md-7">
-            <h1>Compartido con:</h1>
-            <hr />
-            <h5 *ngIf="users.length === 0">No se ha compartido con nadie aun.</h5>
-          
-            <div *ngFor="let user of users">
-              <div class="container-fluid py-2 user-element">
-                <img
-                  src={{user.img}}
-                  alt={{user.nickname}}
-                  class="rounded-circle"
-                  width="45"
-                />
-                <h4 class="mb-0 mx-3">{{user.name}} {{user.lastname}} ({{user.nickname}})</h4>
-                <button class="btn btn-danger" (click)="btnDeleteShare(user._id!)"><i class="fa-solid fa-trash"></i></button>
-              </div>
-              <hr class="my-0 d-none" />
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
-        <button type="button" class="btn btn-primary d-none">Compartir</button>
-      </div>
-    </div>
-  </div>
-</div>

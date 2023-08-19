@@ -127,6 +127,11 @@ h1{
 
 }
 
+.cont-edit{
+  max-height: 200px;
+  overflow-y:auto;
+}
+
 .view-container, .bar-container{
   background-color: #212529c8;
   color: rgb(229, 229, 229); 
@@ -149,6 +154,22 @@ h1{
     background-color: #60a5fa;
     opacity: 0.7;
     border-style: none;
+  }
+
+  .btn-danger{
+    background-color: rgb(185, 0, 0);
+  }
+  
+  .btn-danger:active{
+    background-color: rgb(185, 0, 0);
+  }
+
+  .btn-success{
+    background-color: rgb(20, 94, 20);
+  }
+  
+  .btn-success:active{
+    background-color: rgb(20, 94, 20);
   }
 
   .btn2{

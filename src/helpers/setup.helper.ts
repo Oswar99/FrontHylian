@@ -13,7 +13,7 @@ class CoderContent {
 
   public setBody(body: string) {
     this.body = body;
-  };
+  }; 
   public setStyle(style: string) {
     this.styles = style;
   };
@@ -26,5 +26,28 @@ class CoderContent {
     return content;
   }
 };
+
+
+export function compressImg(imgn: any, quality: number): Promise<any> {
+  return new Promise<any>((resolve) => {
+    const $canvas = document.createElement("canvas");
+    const img = new Image();
+    img.onload = () => {
+      $canvas.width = img.width;
+      $canvas.height = img.height;
+      $canvas.getContext("2d")!.drawImage(img, 0, 0);
+      $canvas.toBlob((blob) => {
+        if (blob !== null) {
+          resolve(blob);
+        }
+      },
+      "image/jpeg",
+      quality / 100
+      );
+    };
+    img.src = URL.createObjectURL(imgn);
+  });
+};
+
 
 export default CoderContent

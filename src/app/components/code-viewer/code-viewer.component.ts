@@ -2,7 +2,7 @@ import { Component, ViewChild, Input, Output, EventEmitter, OnInit } from '@angu
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 import { PrismEditorComponent } from '../prism-editor/prism-editor.component';
-import CoderContent from 'src/helpers/coder.helper';
+import CoderContent from 'src/helpers/setup.helper';
 import { IProjectData, IUser } from 'src/helpers/types';
 import { deleteShare, getProjectById, getShares, newProject, shareWithUser, updateProjectById } from 'src/services/api.service';
 import { Router } from '@angular/router';
@@ -19,13 +19,13 @@ export class CodeViewerComponent implements OnInit{
   @Input() project_id: string = "";
 
   @Output() fnCancel: EventEmitter<void> = new EventEmitter<void>;
-  @Output() loadProject: EventEmitter<string> = new EventEmitter<string>;
+  @Output() loadProject: EventEmitter<{title: string, carpet: boolean}> = new EventEmitter<{title: string, carpet: boolean}>;
 
   html: SafeHtml;
   share: boolean = false;
   loading: boolean = true;
 
-  users: IUser[] = [];
+  carpet: boolean = false;
 
   htmltext: string = "";
   csstext: string = "";
@@ -48,11 +48,12 @@ export class CodeViewerComponent implements OnInit{
       getProjectById(this.project_id).then(v=>{
         if(v.data.successed){
           const ptest: IProjectData = v.data.project
+          this.carpet = ptest.carpet!
           this.onHtmlChange(ptest.html!, 1)
           this.onHtmlChange(ptest.css!, 2)
           this.onHtmlChange(ptest.js!, 3)
           
-          this.loadProject.emit(ptest.title);
+          this.loadProject.emit({title:ptest.title!, carpet:ptest.carpet!});
           this.project_loaded = ptest;
           this.loading = false;
 
@@ -87,35 +88,19 @@ export class CodeViewerComponent implements OnInit{
     this.html = this.coder.getContent();
   };
 
-  modalAbierta: boolean = false;
-
-  loadShare(){
-    getShares(this.project_id).then(v=>{
-      if(v.data.successed){
-        this.users = v.data.list;
-      }
-    })
-  }
-
-  abrirModal() {
-    this.loadShare();
-    this.modalAbierta = true;
-  }
-
-  cerrarModal() {
-    this.modalAbierta = false;
-  }
 
   fnSave(data: {
     title: string,
     public: boolean
   }){
+    const lc = localStorage.getItem("location");
     const newProjectData: IProjectData = {
       title: data.title,
       public: data.public,
       html:this.htmltext,
       css:this.csstext,
-      js: this.jstext
+      js: this.jstext,
+      father: lc? lc:"root"
     }
 
     newProject(newProjectData).then(v=>{
@@ -153,23 +138,8 @@ export class CodeViewerComponent implements OnInit{
     return this.project_id;
   }
 
-  shareWith(id:string){
-    shareWithUser({
-      project: this.project_id,
-      id: id
-    }).then(v=>{
-      alert(v.data.message);
-      this.loadShare();
-    })
-  }
 
-  btnDeleteShare(id: string){
-    deleteShare(this.project_id, id).then(v=>{
-      if(v.data.successed){
-        this.loadShare();
-      }
-    })
-  }
+  
   
 }
 

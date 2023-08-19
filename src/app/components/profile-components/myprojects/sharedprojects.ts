@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { IProjectData } from 'src/helpers/types';
-import { getProjectsByUser, getShareByUser } from 'src/services/api.service';
+import { getShareByUser } from 'src/services/api.service';
 
 @Component({
     selector: 'shared-projects',
@@ -10,7 +9,7 @@ import { getProjectsByUser, getShareByUser } from 'src/services/api.service';
 })
 
 export class SharedProjects implements OnInit {
-    @Input() title: string = "Proyectos compartidos";
+    @Input() title: string = "Recursos compartidos";
 
     projects: any[] = []
     loading: boolean = true;

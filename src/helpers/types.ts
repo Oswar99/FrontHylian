@@ -8,6 +8,8 @@ export interface IProjectData{
     html?: string,
     css?: string,
     js?: string,
+    carpet?: boolean,
+    father?: string
 };
 
 export interface IUser{

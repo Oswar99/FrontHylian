@@ -2,7 +2,6 @@
   max-width: 1000px;
   margin: 0 auto;
   position: relative;
-  overflow: hidden;
   min-height: 200px;
 }
 
@@ -16,8 +15,8 @@
 .line-numbers {
   position: absolute;
   top: 0px;
-  padding-top: 15px;
   left: 0px;
+  padding-top: 15px;
   background-color: black;
   width: 40px;
   height: 100%;

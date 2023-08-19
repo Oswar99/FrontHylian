@@ -11,6 +11,8 @@ export class SimpleModal{
     @Input() title: string = "";
     @Input() btnLaunch:string = ""
     @Input() public: boolean = false;
+    @Input() icon: string = ''
+    @Input() target: string = 'modal-save'
     
     @Output() onsave = new EventEmitter<{
         title: string,

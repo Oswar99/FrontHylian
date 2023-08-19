@@ -14,7 +14,9 @@
       <ul class="mt-3">
         <div *ngFor="let project of projects">
           <div class="contProyecto my-1">
-            <li><a routerLink="/projects/{{project._id}}">{{project.title}}</a> ( {{project.user.nickname}} )</li>
+            <li><a routerLink="/projects/{{project._id}}">
+              <i *ngIf="!project.carpet" class="fa-solid fa-code fa-sm mx-2"></i>
+              <i *ngIf="project.carpet" class="fa-solid fa-folder fa-sm mx-2"></i>{{project.title}}</a> ( {{project.user.nickname}} )</li>
           </div>
         </div>
       </ul>

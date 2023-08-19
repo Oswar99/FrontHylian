@@ -12,7 +12,7 @@ axios.interceptors.request.use(
     }
 );
 
-const query: string = "http://localhost:3000";
+export const query: string = "http://localhost:3000";
 
 //users
 
@@ -27,6 +27,14 @@ export function login(data: LoginProps): Promise<any>{
 export function Register(data: IUser):Promise<any>{
     return new Promise<any>((resolve)=>{
         axios.post(`${query}/register`, data)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    })
+}
+
+export function updateUser(data: IUser):Promise<any>{
+    return new Promise<any>((resolve)=>{
+        axios.put(`${query}/users`, {data: data})
         .then(result => resolve(result) )
         .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
     })
@@ -103,6 +111,15 @@ export function getProjectsByUser(type: string): Promise<any>{
     });
 };
 
+export function getProjectsByFather(father: string = "root"): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.get(`${query}/v2/project?father=${father}`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+
 export function getProjectById(id:string): Promise<any>{
     return new Promise<any>( resolve => {
         axios.get(`${query}/project/${id}`)
@@ -148,5 +165,13 @@ export function getShareByUser(): Promise<any>{
         axios.get(`${query}/v2/share`)
         .then(result => resolve(result) )
         .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
+export function postFile(data:any): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.post(`${query}/files`, {file: data})
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false}} ) );
     });
 };

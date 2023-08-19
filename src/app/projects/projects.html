@@ -5,12 +5,26 @@
   <br>
   <br>
   <div *ngIf="!newp" class="bar-container row py-3 mt-4">
-    <div class="col-md-6 px-5">
-      <button class="btn" (click)="changeView()">{{btnnew}}</button>
+    <div class="col-6 px-5 d-flex align-items-center">
+      <h4 class="mb-0 mx-3">
+        <b>Carpeta: </b>{{fdata? fdata.title!:"ROOT"}}
+      </h4>
+      <button class="btn mx-3" (click)="changeView()">
+        <i class="fa-solid fa-sheet-plastic" style="margin-right: 5px;"></i> Nuevo proyecto 
+      </button>
+      <simple-modal (onsave)="fnNewCarpet($event)" icon="fa-solid fa-folder-plus" btnLaunch="Nueva carpeta" title="Crear una nueva carpeta" placeholder="Ingrese un nombre para su carpeta"></simple-modal>
     </div>
-    <div class="col-md-6 px-5"></div>
-  </div>
-
+    <div class="col-6 px-5 d-flex row-reverse align-items-center">
+      <button *ngIf="father !== 'root'" (click)="btnBack()" class="btn" ><i class="fa-solid fa-arrow-left" ></i></button>
+      <share-modal *ngIf="father !== 'root'" [project_id]="father" style="margin-right: 25px;"></share-modal>
+        <button *ngIf="father !== 'root'"  type="button" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#modal-update" >
+          <i class="fa-solid fa-save" style="margin-right: 5px;"></i> Modificar
+        </button>
+      <button *ngIf="father !== 'root'" class="btn btn-danger"  ><i class="fa-solid fa-trash"></i></button>
+      </div>
+    </div>
+    <simple-modal target="modal-update" *ngIf="father !== 'root'" icon="fa-solid fa-save" (onsave)="fnUpdateFolder($event)" btnLaunch="Modificar" title="Modificar carpeta" [placeholder]="fdata!.title!" [public]="fdata!.public!"></simple-modal>
+    
   <div *ngIf="projects.length === 0 && !newp" class="container py-2">
     <div class="table-rw py-2 text-center my-2">
       <h4 class="mb-0">No hay datos para mostrar!</h4>
@@ -21,11 +35,12 @@
     <p>*Nota: doble click para abrir un proyecto.</p>
     <div class="row pr">
       <div *ngFor="let p of projects" class="col-lg-4 mb-3 px-3">
-        <div class="card-st card h-100" (dblclick)="selectProject(p._id!)">
+        <div class="card-st card h-100" (dblclick)="selectProject(p)">
           <div class="card-bd card-body px-3">
             <div class="row">
               <div class="col-4 py-2 d-flex row-center">
-                <i class="fa-solid fa-code fa-2xl"></i>
+                <i *ngIf="!p.carpet" class="fa-solid fa-code fa-2xl"></i>
+                <i *ngIf="p.carpet" class="fa-solid fa-folder fa-2xl"></i>
               </div>
               <div class="col-8">
                 <div class="card-title my-3"><b>{{p.title}}</b></div>
@@ -49,3 +64,7 @@
 
 
 </div>
+
+
+
+

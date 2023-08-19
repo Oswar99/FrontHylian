@@ -1,10 +1,10 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-save">
-    {{btnLaunch}}
+<button *ngIf="target === 'modal-save'" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-save" >
+  <i *ngIf="icon" class={{icon}} style="margin-right: 5px;"></i> {{btnLaunch}}
   </button>
   
   <!-- Modal -->
-  <div class="modal fade" id="modal-save" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" [id]="target.replace('#','')" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content bg-dark">
         <div class="modal-header">

@@ -3,9 +3,9 @@
       <input type="file" class="file-upload-input" (change)="onFileSelected($event)" accept="image/*">
       <span class="file-upload-text">Seleccionar archivo</span>
     </label>
-    <div *ngIf="selectedFile" class="file-info">
-      <p>Archivo seleccionado: {{ selectedFile.name }}</p>
-      <button class="file-upload-button" (click)="uploadFile()">Subir archivo</button>
+    <div *ngIf="selectedFiles" class="file-info">
+      <p>Archivo seleccionado: {{ selectedFiles[0].name }}</p>
+      <button class="file-upload-button d-none" (click)="uploadFile()">Subir archivo</button>
     </div>
   </div>
   

@@ -26,6 +26,8 @@ import { FollowedUsersComponent } from './components/profile-components/users/fo
 import { UserViewComponent } from './user-view/user-view';
 import { SharedProjects } from './components/profile-components/myprojects/sharedprojects';
 import { FileUploadComponent } from './components/file-upload/file-upload';
+import { ShareModal } from './components/modals/share-modal';
+import { FolderView } from './components/folder-view/folder-view';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { FileUploadComponent } from './components/file-upload/file-upload';
     FollowedUsersComponent,
     UserViewComponent,
     SharedProjects,
-    FileUploadComponent
+    FileUploadComponent,
+    ShareModal,
+    FolderView
   ],
 
   imports: [

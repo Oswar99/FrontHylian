@@ -10,7 +10,7 @@ import { getProjectsByUser } from 'src/services/api.service';
 })
 
 export class MyProjectsComponent implements OnInit {
-    @Input() title: string = "Mis Proyectos";
+    @Input() title: string = "Mis Recursos";
     @Input() project_type: string = "";
 
     projects: IProjectData[] = []
@@ -33,6 +33,10 @@ export class MyProjectsComponent implements OnInit {
 
     selectProject(id:string){
         this.router.navigate([`projects/${id}`])
+    }
+
+    folderClick(id: string){
+        localStorage.setItem("location", id);
     }
 
 }
