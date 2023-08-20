@@ -34,6 +34,7 @@ export class LateralBarComponent implements OnInit{
     logout(){
         localStorage.removeItem("user");
         localStorage.removeItem("tk");
+        localStorage.removeItem("location");
         this.router.navigate(['']);
     }
 

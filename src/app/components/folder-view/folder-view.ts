@@ -21,6 +21,7 @@ export class FolderView implements OnInit{
     ngOnInit(): void {
         this.father = this.folder!._id!
         this.fdata = this.folder!;
+        this.loadProjects();
     }
 
     loadProjects() {

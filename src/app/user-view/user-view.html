@@ -50,9 +50,12 @@
               <div *ngFor="let project of projects">
                 <div class="contProyecto my-1">
                   <li>
-                    <a routerLink="/projects/{{project._id}}"
-                      >{{project.title}}</a
-                    >
+                    <a *ngIf="!project.carpet" routerLink="/projects/{{project._id}}">
+                      <i class="fa-solid fa-code fa-sm mx-2"></i>{{project.title}}
+                    </a>
+                    <a *ngIf="project.carpet" routerLink="/projects" (click)="folderClick(project._id!)" >
+                      <i  class="fa-solid fa-folder fa-sm mx-2"></i>{{project.title}}
+                    </a>
                   </li>
                 </div>
               </div>

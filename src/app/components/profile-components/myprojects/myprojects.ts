@@ -10,7 +10,7 @@ import { getProjectsByUser } from 'src/services/api.service';
 })
 
 export class MyProjectsComponent implements OnInit {
-    @Input() title: string = "Mis Recursos";
+    @Input() title: string = "Mis proyectos";
     @Input() project_type: string = "";
 
     projects: IProjectData[] = []

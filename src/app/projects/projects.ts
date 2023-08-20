@@ -18,12 +18,21 @@ export class ProjectsComponent implements OnInit {
 
     father: string = "root";
     fdata: IProjectData | undefined;
+    shareds: IProjectData[] = [];
 
     loadProjects() {
+        this.loading = true;
         getProjectsByFather(this.father).then(v => {
             if (v.data.successed) {
                 this.projects = v.data.projects;
                 this.fdata = v.data.father;
+                this.shareds = v.data.shareds
+
+                if(!v.data.father && this.father !== "root"){
+                    this.father = "root";
+                    localStorage.setItem("location", "root");
+                    this.loadProjects()
+                }
             }
             this.loading = false;
         });
@@ -63,11 +72,11 @@ export class ProjectsComponent implements OnInit {
             localStorage.setItem("location", p._id!)
             this.loadProjects();
         }
-    }
+    };
 
     btnBack() {
-        this.father = this.fdata?.father!;
-        localStorage.setItem("location", this.fdata?.father!);
+        this.father = this.fdata? this.fdata.father!: "root";
+        localStorage.setItem("location", this.fdata? this.fdata.father!: "root");
         this.loadProjects();
     }
 

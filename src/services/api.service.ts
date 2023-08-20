@@ -136,7 +136,7 @@ export function updateProjectById(id:string, data:IProjectData): Promise<any>{
     });
 };
 
-export function shareWithUser(body: {project: string, id: string}): Promise<any>{
+export function shareWithUser(body: {project: string, id: string, carpet: boolean}): Promise<any>{
     return new Promise<any>( resolve => {
         axios.post(`${query}/share`, body)
         .then(result => resolve(result) )

@@ -9,7 +9,7 @@ import { getShareByUser } from 'src/services/api.service';
 })
 
 export class SharedProjects implements OnInit {
-    @Input() title: string = "Recursos compartidos";
+    @Input() title: string = "Proyectos compartidos";
 
     projects: any[] = []
     loading: boolean = true;
@@ -31,6 +31,10 @@ export class SharedProjects implements OnInit {
 
     selectProject(id:string){
         this.router.navigate([`projects/${id}`])
+    };
+
+    folderClick(id: string){
+        localStorage.setItem("location", id);
     }
 
 }

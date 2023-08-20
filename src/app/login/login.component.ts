@@ -10,7 +10,9 @@ import { login } from 'src/services/api.service';
 })
 
 export class LoginComponent {
-  constructor (private router: Router){}
+  constructor (private router: Router){
+    localStorage.removeItem("location");
+  }
   useChange: UseChange = new UseChange({
     email: "",
     pass: ""

@@ -10,6 +10,7 @@ import { deleteShare, getShares, shareWithUser } from 'src/services/api.service'
 
 export class ShareModal implements OnInit {
     @Input() project_id: string = '';
+    @Input() carpet: boolean = false;
 
     users: IUser[] = [];
 
@@ -25,11 +26,12 @@ export class ShareModal implements OnInit {
         this.loadShare();
     }
 
-    shareWith(id: string) {
+    shareWith(id: string, carpet: boolean) {
         if (this.project_id) {
             shareWithUser({
                 project: this.project_id,
-                id: id
+                id: id,
+                carpet: carpet
             }).then(v => {
                 alert(v.data.message);
                 this.loadShare();

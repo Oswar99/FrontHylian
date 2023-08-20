@@ -46,7 +46,7 @@ export class UserViewComponent implements OnInit {
                 this.loadUserData();
             };
         });
-    }
+    };
 
     btnUnfollow(){
         unfollowUser({id: this.id}).then(v=>{
@@ -54,5 +54,9 @@ export class UserViewComponent implements OnInit {
                 this.loadUserData();
             };
         });
-    }
+    };
+
+    folderClick(id: string){
+        localStorage.setItem("location", id);
+    };
 };
