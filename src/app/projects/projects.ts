@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IProjectData } from 'src/helpers/types';
-import { getProjectsByFather, getProjectsByUser, newProject, updateProjectById } from 'src/services/api.service';
+import { deleteProject, getProjectsByFather, getProjectsByUser, newProject, updateProjectById } from 'src/services/api.service';
 
 @Component({
     selector: 'project',
@@ -116,5 +116,15 @@ export class ProjectsComponent implements OnInit {
       }
     })
   };
+
+  fnDelete(){
+    deleteProject(this.father).then(v=>{
+        if(v.data.successed){
+            this.btnBack();
+        }else{
+            alert(v.data.message);
+        };
+    })
+  }
 
 }

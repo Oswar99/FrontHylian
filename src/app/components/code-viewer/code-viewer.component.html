@@ -52,9 +52,9 @@
       <share-modal *ngIf="share && editable" [project_id]="project_id"></share-modal>
     </div>
     <simple-modal icon="fa-solid fa-save" *ngIf="project_id === ''" (onsave)="fnSave($event)" btnLaunch="Guardar" title="Guardar un nuevo proyecto" placeholder="Ingrese un nombre para su proyecto"></simple-modal>
-    <simple-modal icon="fa-solid fa-save" *ngIf="project_id && editable" (onsave)="fnUpdate($event)" btnLaunch="Guardar" title="Actualizar proyecto" [placeholder]="project_loaded!.title!" [public]="project_loaded!.public"></simple-modal>
-    <button class="btn btn-danger mx-2"><i class="fa-solid fa-trash"></i></button>
-    <button class="btn btn-secondary" (click)="fnCancel.emit()"><i class="fa-solid fa-arrow-left" ></i></button>
+    <simple-modal icon="fa-solid fa-save" *ngIf="project_id" (onsave)="fnUpdate($event)" btnLaunch="Guardar" title="Actualizar proyecto" [placeholder]="project_loaded!.title!" [public]="project_loaded!.public"></simple-modal>
+    <button class="btn btn-danger mx-2"  *ngIf="project_id && editable" (click)="fnDelete()" ><i class="fa-solid fa-trash"></i></button>
+    <button class="btn btn-secondary mx-2" (click)="fnCancel.emit()"><i class="fa-solid fa-arrow-left" ></i></button>
   </div>
   
 </div>

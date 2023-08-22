@@ -4,7 +4,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { PrismEditorComponent } from '../prism-editor/prism-editor.component';
 import CoderContent from 'src/helpers/setup.helper';
 import { IProjectData, IUser } from 'src/helpers/types';
-import { deleteShare, getProjectById, getShares, newProject, shareWithUser, updateProjectById } from 'src/services/api.service';
+import { deleteProject, deleteShare, getProjectById, getShares, newProject, shareWithUser, updateProjectById } from 'src/services/api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -138,7 +138,15 @@ export class CodeViewerComponent implements OnInit{
     return this.project_id;
   }
 
-
+  fnDelete(){
+    deleteProject(this.project_id).then(v=>{
+        if(v.data.successed){
+            this.fnCancel.emit();
+        }else{
+            alert(v.data.message);
+        };
+    })
+  }
   
   
 }

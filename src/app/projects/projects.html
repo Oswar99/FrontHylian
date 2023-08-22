@@ -38,7 +38,7 @@
       >
         <i class="fa-solid fa-save" style="margin-right: 5px"></i> Modificar
       </button>
-      <button *ngIf="father !== 'root'" class="btn btn-danger">
+      <button *ngIf="father !== 'root'" class="btn btn-danger" (click)="fnDelete()">
         <i class="fa-solid fa-trash"></i>
       </button>
     </div>

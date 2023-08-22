@@ -103,6 +103,14 @@ export function newProject(data: IProjectData): Promise<any>{
     });
 };
 
+export function deleteProject(id:string): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.delete(`${query}/project/${id}`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
+    });
+};
+
 export function getProjectsByUser(type: string): Promise<any>{
     return new Promise<any>( resolve => {
         axios.get(`${query}/project?type=${type}`)
@@ -130,7 +138,7 @@ export function getProjectById(id:string): Promise<any>{
 
 export function updateProjectById(id:string, data:IProjectData): Promise<any>{
     return new Promise<any>( resolve => {
-        axios.put(`${query}/project/${id}`, data)
+        axios.put(`${query}/project/${id}`, {data: data})
         .then(result => resolve(result) )
         .catch(error => resolve( {data: {successed:false, message: error.message}} ) );
     });
