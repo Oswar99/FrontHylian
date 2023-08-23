@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
+    overflow-y:auto;
 }
 
 .main-container{
@@ -17,4 +18,31 @@
 .main .form-control{
     margin-top: 20px;
     margin-bottom:20px
+};
+
+@keyframes crecimientoAnimacion {
+    from {
+        transform: scale(1); /* Tamaño original */
+    }
+    to {
+        transform: scale(1.2); /* Tamaño aumentado */
+    }
 }
+
+.cleared-form{
+    .row{
+        min-height: 0px;
+    }
+
+    .plan-card{
+        background-color: rgba(0, 0, 0, 0.566);
+        color:white;
+        transition: transform 0.5s ease;
+        cursor: pointer;
+    };
+
+    .plan-card:hover{
+        animation: crecimientoAnimacion 0.5s ease;
+    }
+}
+

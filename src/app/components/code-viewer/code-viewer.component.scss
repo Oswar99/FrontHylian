@@ -56,6 +56,26 @@
     z-index: 100;
   }
 
+  .btn-down{
+    background:transparent;
+    border-style: none;
+    color:white;
+    position:  absolute;
+    right: 50px;
+    bottom: 10px;
+    z-index: 100;
+  }
+
+  .btn-down2{
+    background:transparent;
+    border-style: none;
+    color:black;
+    position:  absolute;
+    right: 10px;
+    bottom: 10px;
+    z-index: 100;
+  }
+
   .code-btngroup{
     display: none;
 

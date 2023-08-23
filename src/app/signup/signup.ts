@@ -15,8 +15,12 @@ export class SignupComponent {
     lastname:"",
     email:"",
     nickname:"",
-    pass:""
-  }
+    pass:"",
+    type:"GRATUITO"
+  };
+
+  selected: string = "GRATUITO";
+
   ch:UseChange = new UseChange(this.state);
   constructor (private router: Router){
   }
@@ -32,6 +36,29 @@ export class SignupComponent {
   
   irALanding(){
     this.router.navigate(['']);
+  }
+
+  types: string[] = ["GRATUITO", "ESTANDAR", "PROFESIONAL"];
+
+  setSelected(type: 0|1|2){
+    this.selected = this.types[type];
+    this.ch.handleChange({target:{
+      name:"type",
+      value:this.types[type]
+    }})
+  };
+
+  getIsSelected(type: 0|1|2){
+    return this.selected === this.types[type];
+  };
+
+  getStyle(type: 0|1|2){
+    const s = "border-style: solid; border-color: white;"
+    if(this.getIsSelected(type)){
+      return s;
+    }else{
+      return "";
+    }
   }
   
 }

@@ -5,34 +5,52 @@
   </div>
 </div>
 
-<section class="main rounded py-5 px-4 shadow container">
+<section class="main rounded py-5 px-4 shadow container scrollbar">
     <div class="row justify-content-center align-items-center">
         <div class="col-md-10 px-5">
             <div class="form-h px-5 py-4">
               <h1 class="mb-5 mt-3">Bienvenido a Hylia Note!</h1>
-                <div class="row">
-                  <div class="col-md-6">
-                    <h4>Datos Personales</h4>
-                    <hr />
-                    <input class="form-control" name="name" (input)="ch.handleChange($event)" placeholder="Nombres" />
-                    <input class="form-control" name="lastname" (input)="ch.handleChange($event)" placeholder="Apellidos" />
-                    <input class="form-control" name="email" (input)="ch.handleChange($event)" placeholder="Correo" />
-                  </div>
-                  <div class="col-md-6">
-                    <h4>Datos de la cuenta</h4>
-                    <hr/>
-                    <input class="form-control" name="nickname" (input)="ch.handleChange($event)" placeholder="Nombre de Usuario" />
-                    <input type="password" class="form-control" name="pass" (input)="ch.handleChange($event)" placeholder="Contraseña" />
-                    <input type="password" class="form-control" placeholder="Repita la Contraseña" />
-                    <label class="d-none" for="opciones">Tipo de Usuario:</label>
-                  </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <h4>Datos Personales</h4>
+                  <hr />
+                  <input class="form-control" name="name" (input)="ch.handleChange($event)" placeholder="Nombres" />
+                  <input class="form-control" name="lastname" (input)="ch.handleChange($event)" placeholder="Apellidos" />
+                  <input class="form-control" name="email" (input)="ch.handleChange($event)" placeholder="Correo" />
                 </div>
-                &nbsp;
-                  <select class="d-none" id="opciones">
-                      <option value="opcion1">Gratis</option>
-                      <option value="opcion2">PRO</option>
-                  </select>
-                  <br>
+                <div class="col-md-6">
+                  <h4>Datos de la cuenta</h4>
+                  <hr/>
+                  <input class="form-control" name="nickname" (input)="ch.handleChange($event)" placeholder="Nombre de Usuario" />
+                  <input type="password" class="form-control" name="pass" (input)="ch.handleChange($event)" placeholder="Contraseña" />
+                  <input type="password" class="form-control" placeholder="Repita la Contraseña" />
+                  <label class="d-none" for="opciones">Tipo de Usuario:</label>
+                </div>
+              </div>
+              <h3 class="mt-1">Selecciona un plan</h3>
+              <hr />
+              <div class="cleared-form ">
+                <div class="row">
+                    <div class="mx-2 col-md-3 py-2 px-3 plan-card rounded h-100" [style]= "getStyle(0)" (click)="setSelected(0)">
+                      <h3 class="mb-0 mt-2">Plan Gratuito</h3>
+                      <hr class="my-2" />
+                      <p>Limite: 1 proyecto</p>
+                    </div>
+
+                    <div class="mx-2 col-md-3 py-2 px-3 plan-card rounded h-100" [style]= "getStyle(1)" (click)="setSelected(1)">
+                      <h3 class="mb-0 mt-2">Plan Estandar</h3>
+                      <hr class="my-2" />
+                      <p>Limite: 5 proyecto</p>
+                    </div>
+
+                    <div class="mx-2 col-md-3 py-2 px-3 plan-card rounded h-100" [style]= "getStyle(2)" (click)="setSelected(2)">
+                      <h3 class="mb-0 mt-2">Plan Profesional</h3>
+                      <hr class="my-2" />
+                      <p>Limite: ilimitado</p>
+                    </div>
+                </div>
+              </div>
+              
                 <button (click)="registerUser()" class="btn mb-4 mt-4">Continuar</button>
             </div>
         </div>

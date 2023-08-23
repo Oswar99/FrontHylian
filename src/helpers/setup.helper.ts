@@ -13,7 +13,7 @@ class CoderContent {
 
   public setBody(body: string) {
     this.body = body;
-  }; 
+  };
   public setStyle(style: string) {
     this.styles = style;
   };
@@ -24,6 +24,25 @@ class CoderContent {
   public getContent() {
     const content: SafeHtml = this.sanitizer.bypassSecurityTrustHtml(`<style>${this.styles}</style><script>${this.scripts}</script>${this.body}`)
     return content;
+  }
+
+  public getHtml(title: string) {
+    const html: string = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style>${this.styles}</style>
+        <script>${this.scripts}</script>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>${title}</title>
+    </head>
+    <body>
+        ${this.body}
+    </body>
+    </html>
+    `
+    return html;
   }
 };
 
@@ -41,8 +60,8 @@ export function compressImg(imgn: any, quality: number): Promise<any> {
           resolve(blob);
         }
       },
-      "image/jpeg",
-      quality / 100
+        "image/jpeg",
+        quality / 100
       );
     };
     img.src = URL.createObjectURL(imgn);

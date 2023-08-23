@@ -18,7 +18,7 @@ export interface IUser{
     lastname:string,
     email:string,
     img?:string,
-    type?: "ADMIN" | "ESTANDAR",
+    type?: "GRATUITO" | "ESTANDAR" | "PROFESIONAL",
     nickname?: string,
     pass?:string,
     enabled?:boolean,

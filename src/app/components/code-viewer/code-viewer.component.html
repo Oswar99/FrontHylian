@@ -20,6 +20,7 @@
         ></app-prism-editor>
       </div>
       <button class="btn-max" (click)="onSelectModal(1, 'HTML')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="fa-solid fa-maximize"></i></button>
+      <button class="btn-down" (click)="downloadFile(1)"><i class="fa-solid fa-download"></i></button>
     </div>
     
     <div class="col-md-4 mb-3 pr">
@@ -30,6 +31,7 @@
         ></app-prism-editor>
       </div>
       <button class="btn-max" (click)="onSelectModal(2, 'CSS')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" ><i class="fa-solid fa-maximize"></i></button>
+      <button class="btn-down" (click)="downloadFile(2)"><i class="fa-solid fa-download"></i></button>
     </div>
     
     <div class="col-md-4 mb-3 pr">
@@ -40,11 +42,13 @@
         ></app-prism-editor>
       </div>
       <button class="btn-max" (click)="onSelectModal(3, 'JAVASCRIPT')" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop" ><i class="fa-solid fa-maximize"></i></button>
+      <button class="btn-down" (click)="downloadFile(3)"><i class="fa-solid fa-download"></i></button>
     </div>
   </div>
 
   <div class="visualizer bg-light shadow-sm">
     <iframe class="frame" [srcdoc]="html" [frameBorder]="0"></iframe>
+    <button class="btn-down2" (click)="downloadFile(0)"><i class="fa-solid fa-download"></i></button>
   </div>
   
   <div *ngIf="enablesave" class="editor-save py-3">
