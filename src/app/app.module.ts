@@ -28,6 +28,8 @@ import { SharedProjects } from './components/profile-components/myprojects/share
 import { FileUploadComponent } from './components/file-upload/file-upload';
 import { ShareModal } from './components/modals/share-modal';
 import { FolderView } from './components/folder-view/folder-view';
+import { provideErrorTailorConfig } from '@ngneat/error-tailor';
+
 
 @NgModule({
   declarations: [
@@ -63,7 +65,10 @@ import { FolderView } from './components/folder-view/folder-view';
     ReactiveFormsModule,
     BrowserAnimationsModule,
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
+  
 })
+
 export class AppModule { }

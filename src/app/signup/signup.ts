@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { IUser } from 'src/helpers/types';
 import UseChange from 'src/helpers/useChange.helper';
 import { Register } from 'src/services/api.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
     selector: 'signup',
     templateUrl: './signup.html',
@@ -19,11 +20,69 @@ export class SignupComponent {
     type:"GRATUITO"
   };
 
+  registerArray: any={};
+  emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+  formularioRegistro = new FormGroup({
+    nombres: new FormControl('', 
+      [
+        Validators.required
+      ]
+    ),
+    apellidos: new FormControl('', 
+      [
+        Validators.required
+      ]
+    ),
+    email: new FormControl('',
+      [
+        Validators.required, 
+        Validators.pattern(this.emailPattern)
+      ]
+    ),
+    nickname: new FormControl('',
+      [
+        Validators.required,
+      ]
+    ),
+    password: new FormControl('',
+      [
+        Validators.required,
+        Validators.minLength(8)
+      ]
+    ),
+    confirmPassword: new FormControl('',
+      [
+        Validators.required
+      ]
+    )
+  });
+
+  get nombres(){
+    return this.formularioRegistro.get('nombres');
+  };
+  get apellidos(){
+    return this.formularioRegistro.get('apellidos');
+  };
+  get email(){
+    return this.formularioRegistro.get('email');
+  };
+  get nickname(){
+    return this.formularioRegistro.get('nickname');
+  };
+  get password(){
+    return this.formularioRegistro.get('password');
+  };
+  get confirmPassword(){
+    return this.formularioRegistro.get('confirmPassword');
+  };
+
   selected: string = "GRATUITO";
 
   ch:UseChange = new UseChange(this.state);
+
   constructor (private router: Router){
   }
+
 
   registerUser(){
     Register(this.ch.getValues()).then(v=>{
