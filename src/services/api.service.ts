@@ -12,7 +12,7 @@ axios.interceptors.request.use(
     }
 );
 
-export const query: string = "http://localhost:3000";
+export const query: string = "https://api.grupozdd.com";
 
 //users
 
