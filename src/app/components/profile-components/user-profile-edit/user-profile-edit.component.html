@@ -11,9 +11,10 @@
             <div class="col-md-6">
                 <h4>Datos de la cuenta</h4>
                 <hr/>
-                <input type="password" class="form-control mb-2" name="pass" (input)="ch.handleChange($event)" placeholder="Contraseña" />
-                <input type="password" class="form-control mb-2" placeholder="Repita la Contraseña" />
-                <label class="d-none" for="opciones">Tipo de Usuario:</label>
+                <input type="password" class="form-control mb-2" name="pass" (input)="fnComparePass($event)" placeholder="Contraseña" />
+                <input type="password" class="form-control mb-2" name="pass_ver" (input)="fnComparePass($event)" placeholder="Repita la Contraseña" />
+                <p *ngIf="pass_len" style="color:red">La contraseña debe ser de almenos 8 caracteres</p>
+                <p *ngIf="pass_alert" style="color:red">Las contraseñas deben coincidir</p>
             </div>
         </div>
         <hr />
@@ -22,8 +23,32 @@
             <file-upload (loadimg)="setImg($event)" ></file-upload>
         </div>
         <hr />
+
+        <h3 class="mt-1">Actualiza tu plan</h3>
+              <hr />
+              <div class="cleared-form ">
+                <div class="row">
+                    <div class="mx-2 col-md-3 py-2 px-3 plan-card rounded h-100" [style]= "getStyle(0)" (click)="setSelected(0)">
+                      <h3 class="mb-0 mt-2">Plan Gratuito</h3>
+                      <hr class="my-2" />
+                      <p>Limite: 1 proyecto</p>
+                    </div>
+
+                    <div class="mx-2 col-md-3 py-2 px-3 plan-card rounded h-100" [style]= "getStyle(1)" (click)="setSelected(1)">
+                      <h3 class="mb-0 mt-2">Plan Estandar</h3>
+                      <hr class="my-2" />
+                      <p>Limite: 5 proyecto</p>
+                    </div>
+
+                    <div class="mx-2 col-md-3 py-2 px-3 plan-card rounded h-100" [style]= "getStyle(2)" (click)="setSelected(2)">
+                      <h3 class="mb-0 mt-2">Plan Profesional</h3>
+                      <hr class="my-2" />
+                      <p>Limite: ilimitado</p>
+                    </div>
+                </div>
+              </div>
         <div class="d-flex row-reverse">
-            <button class="btn mt-3 mx-1" (click)="fnSave()">Guardar</button>
+            <button class="btn mt-3 mx-1" [disabled]="pass_mod && (pass_alert || pass_len)" (click)="fnSave()">Guardar</button>
             <button class="btn btn2 mt-3 mx-1" (click)="fnCancel()">Cancelar</button>
         </div>
     </div>
