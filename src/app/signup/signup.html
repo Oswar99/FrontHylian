@@ -49,13 +49,14 @@
                       type="password" class="form-control" name="pass" formControlName="password" (input)="ch.handleChange($event)" placeholder="Contraseña" />
                   <div *ngIf="password?.invalid && (password?.dirty || password?.touched)" class="Error">
                     <span *ngIf="password?.errors?.['required']">El campo es obligatorio</span>
-                    <span *ngIf="password?.errors?.['minLength']">Debe contener como minimo 8 caracteres</span>
+                    <span *ngIf="password?.errors?.['minlength']">Debe contener como minimo 8 caracteres</span>
                   </div>
                   <!--Validacion Confirmar Password-->
                   <input [ngClass]="{'input-error':confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)}"
                       type="password" class="form-control" formControlName="confirmPassword" placeholder="Confirmar Contraseña" />
                   <div *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)" class="Error">
                     <span *ngIf="confirmPassword?.errors?.['required']">El campo es obligatorio</span>
+                    <span *ngIf="confirmPassword?.errors?.['passwordMismatch']">Las contraseñas no coinciden</span>
                   </div>
                   <label class="d-none" for="opciones">Tipo de Usuario:</label>
                 </div>

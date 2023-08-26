@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { IUser } from 'src/helpers/types';
 import UseChange from 'src/helpers/useChange.helper';
 import { Register } from 'src/services/api.service';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 @Component({
     selector: 'signup',
     templateUrl: './signup.html',
@@ -20,8 +20,26 @@ export class SignupComponent {
     type:"GRATUITO"
   };
 
-  registerArray: any={};
+  //Validar coincidencia
+  passwordMatchValidator: ValidatorFn = (formGroup: AbstractControl) => {
+    const passwordControl = formGroup.get('password');
+    const confirmPasswordControl = formGroup.get('confirmPassword');
+  
+    if (!passwordControl || !confirmPasswordControl) {
+      return null;
+    }
+  
+    if (passwordControl.value === confirmPasswordControl.value) {
+      confirmPasswordControl.setErrors(null);
+    } else {
+      confirmPasswordControl.setErrors({ passwordMismatch: true });
+    }
+  
+    return null;
+  };
+
   emailPattern = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+  
   formularioRegistro = new FormGroup({
     nombres: new FormControl('', 
       [
@@ -55,7 +73,8 @@ export class SignupComponent {
         Validators.required
       ]
     )
-  });
+  }, { validators: this.passwordMatchValidator });
+  
 
   get nombres(){
     return this.formularioRegistro.get('nombres');
